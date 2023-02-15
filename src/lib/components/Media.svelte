@@ -61,8 +61,8 @@
 	<div class="icons-set  gap-4 flex justify-end w-2/12">
 		<button
 			on:click={handleList}
-			disabled={$storeAnime === null}
-			class:disabled={$storeAnime === null}
+			disabled={$storeAnime === null || $isOpen === true}
+			class:disabled={$storeAnime === null || $isOpen === true}
 		>
 			<ListVideo color="#AFAFAF" size="20" />
 		</button>
