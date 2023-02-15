@@ -1,10 +1,11 @@
 <script>
 	import '../app.css';
-	import { isOpen } from '../lib/store/boolean';
-	import { Navbar, Media, Header } from '$lib/components';
+	import { isOpen, storeAnime, showList } from '../lib/store/store';
+	import { Navbar, Media, Header, MoreEpisodes } from '$lib/components';
 	import NProgress from 'nprogress';
 	import 'nprogress/nprogress.css';
 	import { beforeNavigate, afterNavigate } from '$app/navigation';
+
 	NProgress.configure({ showSpinner: false });
 
 	beforeNavigate(() => {
@@ -36,4 +37,7 @@
 		<slot />
 	</div>
 	<Media />
+	{#if $isOpen}
+		<MoreEpisodes />
+	{/if}
 </div>

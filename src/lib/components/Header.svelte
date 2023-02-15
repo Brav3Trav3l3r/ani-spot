@@ -4,12 +4,27 @@
 	import { ChevronLeft, ChevronRight, Triangle } from 'lucide-svelte';
 	import profile from '../../assets/eren.png';
 	import { page } from '$app/stores';
-	import { isOpen } from '../store/boolean';
+	import { isOpen, storeAnime, showList } from '../store/store';
 	import { afterNavigate } from '$app/navigation';
 	export let yScroll;
 	let color;
 
+	$: changeTitle($showList);
+
+	let title;
+
+	function changeTitle(n) {
+		if (n) {
+			title = $storeAnime.title.english ? $storeAnime.title.english : $storeAnime.title.romaji;
+		} else {
+			title = $page.data.info.title.english
+				? $page.data.info.title.english
+				: $page.data.info.title.romaji;
+		}
+	}
+
 	afterNavigate(() => {
+		changeTitle($showList)
 		if ($page.data.color) {
 			color = $page.data.color;
 		} else {
@@ -31,7 +46,7 @@
 				<ChevronRight color="#d1d1d1" size="28" strokeWidth="1" />
 			</div>
 		</div>
-		{#if ($isOpen || yScroll > 360) && $page.data.info}
+		{#if ($isOpen || yScroll > 360) && ($page.data.info || $storeAnime)}
 			<div class="info flex items-center px-4 space-x-4">
 				<div
 					in:scale={{ duration: 100 }}
@@ -45,9 +60,7 @@
 					in:fly={{ x: 40, duration: 200 }}
 					class="text-2xl font-semibold tracking-tighter line-clamp-1"
 				>
-					{$page.data.info.title.english
-						? $page.data.info.title.english
-						: $page.data.info.title.romaji}
+					{title}
 				</h1>
 			</div>
 		{/if}

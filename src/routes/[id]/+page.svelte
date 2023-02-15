@@ -1,7 +1,7 @@
 <script>
 	import { Cover, Controls, EpAndInfo, MoreEpisodes } from '$lib/components';
 	import { fly, scale } from 'svelte/transition';
-	import { isOpen } from '../../lib/store/boolean';
+	import { isOpen } from '../../lib/store/store';
 	export let data;
 	let { info, color } = data;
 	$: color = data.color;
@@ -37,9 +37,6 @@
 		</div>
 	</div>
 </div>
-{#if $isOpen}
-	<MoreEpisodes {info} on:click={() => isOpen.set(false)} />
-{/if}
 
 {#if info.cover != info.image}
 	<div class="cover-image h-[350px] fixed top-0 left-80 right-[18px] z-0 ">

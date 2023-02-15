@@ -1,10 +1,10 @@
 <script>
-	import { epId } from '$lib/store/boolean';
+	import { epId, storeAnime } from '$lib/store/store';
 	import { ArrowLeftRight, Heart } from 'lucide-svelte';
 	export let info;
 	let aniImage = 'https://s4.anilist.co/file/anilistcdn/character/large/default.jpg';
 	let defImage = 'https://wallpapercave.com/wp/wp9238698.jpg';
-
+	import {isOpen} from '$lib/store/store'
 	import { Card } from '$lib/components';
 </script>
 
@@ -16,20 +16,25 @@
 				{#each info.episodes.slice(0, 5) as episode}
 					<div
 						on:keydown
-						on:click={() => epId.set(episode.id)}
+						on:click={() => {
+							storeAnime.set(info);
+							epId.set(episode);
+						}}
 						class="episode flex items-center hover:bg-zinc-100/10 rounded-md py-2 px-4 cursor-pointer"
 					>
 						<h1 class="text-zinc-400 font-semibold ">{episode.number}</h1>
 						<div class="image brightness-95 h-14 ml-6 mr-4 aspect-video truncate shrink-0">
 							<img src={episode.image} alt="" class="w-full h-full object-cover" />
 						</div>
-						<h1 class="text-zinc-100 max-w-md line-clamp-1">{episode.title != null ? episode.title : ''}</h1>
+						<h1 class="text-zinc-100 max-w-md line-clamp-1">
+							{episode.title != null ? episode.title : ''}
+						</h1>
 					</div>
 				{/each}
 			</div>
 
 			<button
-				on:click
+				on:click={()=>isOpen.set(true)}
 				class="text-sm font-semibold text-[#B2B2B2] hover:underline w-fit underline-offset-2 cursor-pointer mt-4"
 				>{#if info.episodes.length > 0 && info.nextAiringEpisode && info.nextAiringEpisode.episode <= info.episodes.length}
 					{info.nextAiringEpisode.episode - 1}/{info.episodes.lenght}

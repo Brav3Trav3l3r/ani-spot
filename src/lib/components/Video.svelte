@@ -1,12 +1,11 @@
 <script>
 	import { Maximize2 } from 'lucide-svelte';
-	import { epId } from '$lib/store/boolean';
+	import { epId } from '$lib/store/store';
 	let url;
 
-	$: console.log(url);
 
 	$: if ($epId !== null) {
-		getUrl($epId).then((result) => {
+		getUrl($epId.id).then((result) => {
 			url = result;
 		});
 	}
@@ -20,7 +19,6 @@
 	}
 
 	async function getUrl(id) {
-		console.log('**RAN**');
 		const res = await fetch(
 			`https://cors.consumet.stream/https://api.consumet.org/meta/anilist/watch/${id}`
 		);
@@ -43,11 +41,7 @@
 	{#if url}
 		<div class="player h-full w-full object-cover aspect-video focus:outline-none">
 			<!-- remove `controls` attribute if you're designing a custom UI -->
-			<media-player
-				src={url}
-				controls
-				autoplay
-			>
+			<media-player src={url} controls autoplay>
 				<media-outlet />
 			</media-player>
 		</div>

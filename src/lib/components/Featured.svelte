@@ -2,9 +2,9 @@
     	import { Heart } from 'lucide-svelte';
 </script>
 
-<div class="featured relative h-[420px] bg-red-700 w-full flex items-end pb-10 px-10">
+<div class="featured relative h-[350px] bg-red-700 w-full flex items-end pb-10 px-10">
 
-    <div class="poster aspect-[2/3] h-80 z-10 shadow-2xl shadow-black/50">
+    <div class="poster aspect-[2/3] h-60 z-10 shadow-2xl shadow-black/50">
         <img src="https://www.animesenpai.net/wp-content/uploads/2022/08/20220806_200737_compress59-725x1024.jpg" alt="artbleach" class="h-full w-full object-cover">
     </div>
 

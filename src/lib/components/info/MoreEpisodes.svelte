@@ -1,15 +1,30 @@
 <script>
 	import { fly, scale } from 'svelte/transition';
-	import { epId } from '$lib/store/boolean';
-	import { isOpen } from '../../store/boolean';
+	import { epId, storeAnime } from '$lib/store/store';
+	import { isOpen, showList } from '../../store/store';
 	import { quintOut } from 'svelte/easing';
 	import { X } from 'lucide-svelte';
-	export let info;
+	import { page } from '$app/stores';
+
+	let info;
+
+	function handleCross() {
+		isOpen.set(false);
+		showList.set(false);
+	}
+
+	
+	if ($showList) {
+		info = $storeAnime;
+	} else if ($page.data.info) {
+		info = $page.data.info;
+	}
+
 </script>
 
 <main
-	in:fly={{ y: 500, duration: 200, easing: quintOut }}
-	class=" eps fixed overflow-auto bottom-20 right-0 left-80 top-0 bg-[#121212] pt-16 px-8 z-50"
+	in:fly={{ y: 500, duration: 100, easing: quintOut }}
+	class=" eps fixed overflow-auto bottom-[90px] right-0 left-80 top-0 bg-[#121212] pt-16 px-8 z-40 "
 >
 	<div in:fly={{ y: 50, duration: 400, delay: 100, easing: quintOut }} class="playing mt-8">
 		<h1 class="text-zinc-400 font-medium mb-2">Now Playing</h1>
@@ -32,7 +47,10 @@
 			{#each info.episodes as episode}
 				<div
 					on:keydown
-					on:click={() => epId.set(episode.id)}
+					on:click={() => {
+						storeAnime.set(info);
+						epId.set(episode);
+					}}
 					class="episode flex items-center hover:bg-zinc-800/30 rounded-md py-2 px-4 cursor-pointer "
 				>
 					<h1 class="text-zinc-400">{episode.number}</h1>
@@ -47,7 +65,7 @@
 </main>
 <div
 	on:keydown
-	on:click
+	on:click={handleCross}
 	in:scale={{ duration: 300 }}
 	class="button fixed bottom-28 h-fit right-14 cursor-pointer z-50 rounded-full bg-purple-400 p-2"
 >
