@@ -1,5 +1,4 @@
 <script>
-	import { Player, Ui, Hls, Video, DefaultUi, usePlayerStore } from '@vime/svelte';
 	import { Maximize2 } from 'lucide-svelte';
 	import { epId } from '$lib/store/boolean';
 	let url;
@@ -33,7 +32,6 @@
 </script>
 
 <svelte:head>
-	<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@vime/core@^5/themes/default.css" /> -->
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vidstack/styles/base.min.css" />
 	<!-- the following styles are optional - remove to go headless -->
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vidstack/styles/ui/buttons.min.css" />
@@ -43,7 +41,7 @@
 
 <div class="video aspect-video w-full bg-zinc-800 relative group focus:outline-none">
 	{#if url}
-		<div class="player h-full w-full object-cover aspect-video focus:outline-none ">
+		<div class="player h-full w-full object-cover aspect-video focus:outline-none">
 			<!-- remove `controls` attribute if you're designing a custom UI -->
 			<media-player
 				src={url}
