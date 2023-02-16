@@ -20,7 +20,7 @@
 			: 'left-6'} absolute bottom-6 right-6 top-16 flex flex-col justify-end"
 	>
 		{#if info.studios && info.studios.length > 0}
-			<div class="studio flex items-center ">
+			<div class="studio flex items-center pb-2">
 				<div class="icon">
 					<Verified fill="#3D91F4" strokeWidth="1" size="28" />
 				</div>
