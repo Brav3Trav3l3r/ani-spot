@@ -27,8 +27,8 @@
 	class="media fixed text-white inset-x-0 bottom-0 h-[90px] space-x-8 bg-neutral-900 flex items-center justify-center px-6 border-t-2 z-50 border-zinc-800"
 >
 	<div class="playing flex flex-col w-2/12 ">
-		<h1 class="">{$epId ? $epId.title : ''}</h1>
-		<h1 class="text-sm text-zinc-400">{animeTitle ? animeTitle : ''}</h1>
+		<h1 class="line-clamp-1">{$epId ? $epId.number + '.' + ' ' + $epId.title : ''}</h1>
+		<h1 class="text-sm text-zinc-400 line-clamp-1">{animeTitle ? animeTitle : ''}</h1>
 	</div>
 	<div class="controls flex flex-col flex-1 space-y-2 items-center  w-8/12">
 		<div class="group flex items-center space-x-6 shrink-0">

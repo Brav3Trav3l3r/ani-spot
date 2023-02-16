@@ -12,6 +12,7 @@
 		"format": "prettier --plugin-search-dir . --write ."
 	},
 	"devDependencies": {
+		"@beyonk/svelte-carousel": "^2.9.0",
 		"@playwright/test": "^1.28.1",
 		"@sveltejs/adapter-auto": "^2.0.0",
 		"@sveltejs/kit": "^1.5.0",
@@ -24,6 +25,7 @@
 		"prettier": "^2.8.0",
 		"prettier-plugin-svelte": "^2.8.1",
 		"svelte": "^3.54.0",
+		"svelte-carousel": "^1.0.22",
 		"tailwindcss": "^3.2.4",
 		"vite": "^4.0.0",
 		"vitest": "^0.25.3"
@@ -31,9 +33,6 @@
 	"type": "module",
 	"dependencies": {
 		"@tailwindcss/line-clamp": "^0.4.2",
-		"@vime/core": "^5.4.0",
-		"@vime/svelte": "^5.4.0",
-		"chakra-ui-svelte": "^0.1.0",
 		"nprogress": "^0.2.0",
 		"sharp": "^0.31.3",
 		"svelte-icons": "^2.1.0",

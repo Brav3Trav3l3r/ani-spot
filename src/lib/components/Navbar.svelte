@@ -4,13 +4,13 @@
 </script>
 
 <nav
-	class="w-80 fixed left-0 top-0 bottom-[90px] text-white bg-black pt-8 flex flex-col justify-between "
+	class="w-80 fixed left-0 top-0 bottom-[90px] text-white bg-black flex flex-col justify-between "
 >
 	<div class="main px-6">
-		<div class="icon flex items-center space-x-2">
+		<!-- <div class="icon flex items-center space-x-2">
 			<div class="icon"><Twitch size="48" /></div>
 			<h1 class="text-3xl font-semibold">Twitch</h1>
-		</div>
+		</div> -->
 
 		<div class="mainlinks mt-8 space-y-3 text-sm font-medium text-zinc-300 border-b-2 pb-4 border-zinc-800">
 			<div class="home flex items-center space-x-4 w-fit cursor-pointer hover:text-white">

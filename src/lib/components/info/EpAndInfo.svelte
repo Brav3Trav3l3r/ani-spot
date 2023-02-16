@@ -1,11 +1,21 @@
 <script>
+	import Carousel from 'svelte-carousel';
+	import { browser } from '$app/environment';
 	import { epId, storeAnime } from '$lib/store/store';
-	import { ArrowLeftRight, Heart } from 'lucide-svelte';
+	import { ArrowLeftRight, Heart, ChevronRight, ChevronLeft } from 'lucide-svelte';
 	export let info;
 	let aniImage = 'https://s4.anilist.co/file/anilistcdn/character/large/default.jpg';
 	let defImage = 'https://wallpapercave.com/wp/wp9238698.jpg';
-	import {isOpen} from '$lib/store/store'
+	import { isOpen } from '$lib/store/store';
 	import { Card } from '$lib/components';
+
+	let carousel;
+
+	import { afterNavigate } from '$app/navigation';
+
+	afterNavigate(() => {
+		carousel.goTo(0, { animated: false });
+	});
 </script>
 
 <div class="group1 flex w-full px-8 py-2 pb-6 space-x-4">
@@ -34,7 +44,7 @@
 			</div>
 
 			<button
-				on:click={()=>isOpen.set(true)}
+				on:click={() => isOpen.set(true)}
 				class="text-sm font-semibold text-[#B2B2B2] hover:underline w-fit underline-offset-2 cursor-pointer mt-4"
 				>{#if info.episodes.length > 0 && info.nextAiringEpisode && info.nextAiringEpisode.episode <= info.episodes.length}
 					{info.nextAiringEpisode.episode - 1}/{info.episodes.lenght}
@@ -120,11 +130,6 @@
 	<div class="characters px-8">
 		<div class="heading flex justify-between items-center ">
 			<h1 class="text-2xl font-semibold tracking-tight py-4 ">Characteres</h1>
-			<h1
-				class="text-sm font-semibold text-[#B2B2B2] hover:underline w-fit underline-offset-2 cursor-pointer"
-			>
-				SHOW ALL
-			</h1>
 		</div>
 		<div class="characteres flex overflow-auto gap-6 scrollbar-hide">
 			{#each info.characters as ch}
@@ -146,19 +151,43 @@
 {/if}
 
 {#if info.recommendations.length > 0}
-	<div class="recomendations p-8">
+	<div class="recomendations p-8 relative">
 		<div class="heading flex justify-between items-center">
 			<h1 class="text-2xl font-semibold tracking-tight py-4 ">Recomendations</h1>
-			<h1
-				class="text-sm font-semibold text-[#B2B2B2] hover:underline w-fit underline-offset-2 cursor-pointer"
-			>
-				SHOW ALL
-			</h1>
 		</div>
-		<div class="card-group flex overflow-auto gap-6 scrollbar-hide">
-			{#each info.recommendations as anime}
-				<Card {anime} />
-			{/each}
+		<div class="card-group flex gap-6 scrollbar-hide">
+			{#if browser}
+				<Carousel
+					bind:this={carousel}
+					let:showPrevPage
+					let:showNextPage
+					dots={false}
+					infinite={false}
+					on:pageChange={(m) => console.log(`Current page index: ${m.detail}`)}
+					particlesToShow={5}
+					particlesToScroll={4}
+				>
+					<div
+						slot="prev"
+						on:keydown
+						on:click={showPrevPage}
+						class="custom-arrow custom-arrow-prev rounded-full p-2 absolute right-12 cursor-pointer z-50 -translate-y-12"
+					>
+						<ChevronLeft />
+					</div>
+					{#each info.recommendations as anime}
+						<Card {anime} />
+					{/each}
+					<div
+						slot="next"
+						on:keydown
+						on:click={showNextPage}
+						class="custom-arrow custom-arrow-next rounded-full p-2 absolute right-2 cursor-pointer z-50 -translate-y-12"
+					>
+						<ChevronRight />
+					</div>
+				</Carousel>
+			{/if}
 		</div>
 	</div>
 {/if}

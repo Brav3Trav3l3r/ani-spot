@@ -15,6 +15,12 @@
 	}
 </script>
 
+{#if info.cover != info.image}
+	<div class="cover-image h-[350px] fixed top-0 left-80 right-[18px] z-0 ">
+		<img src={info.cover} alt="" class="h-full w-full object-cover brightness-75" />
+	</div>
+{/if}
+
 <div
 	class="{$isOpen
 		? '-translate-y-8 brightness-75'
@@ -38,11 +44,7 @@
 	</div>
 </div>
 
-{#if info.cover != info.image}
-	<div class="cover-image h-[350px] fixed top-0 left-80 right-[18px] z-0 ">
-		<img src={info.cover} alt="" class="h-full w-full object-cover brightness-75" />
-	</div>
-{/if}
+
 
 {#if visible}
 	<div
