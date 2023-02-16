@@ -109,12 +109,12 @@
 </div>
 
 {#if info.relations.length > 0}
-	<div class="relations px-8 pb-8">
+	<div class="relations px-8 pb-8 relative">
 		<div class="heading flex justify-between items-center">
 			<h1 class="text-2xl font-semibold tracking-tight py-4 ">Relations</h1>
 		</div>
-		<div class="card-group flex overflow-auto gap-2 scrollbar-hide">
-			{#if browser && info.relations.lenght > 5}
+		<div class="card-group flex gap-2 scrollbar-hide">
+			{#if browser & (info.relations.length > 5)}
 				<Carousel
 					bind:this={carousel}
 					let:showPrevPage
