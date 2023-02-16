@@ -1,8 +1,12 @@
 <script>
+	import { Player, Hls } from '@vime/svelte';
 	import { Maximize2 } from 'lucide-svelte';
 	import { epId } from '$lib/store/store';
 	let url;
 
+	const hlsConfig = {
+		// ...
+	};
 
 	$: if ($epId !== null) {
 		getUrl($epId.id).then((result) => {
@@ -30,25 +34,26 @@
 </script>
 
 <svelte:head>
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vidstack/styles/base.min.css" />
-	<!-- the following styles are optional - remove to go headless -->
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vidstack/styles/ui/buttons.min.css" />
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vidstack/styles/ui/sliders.min.css" />
-	<script type="module" src="https://cdn.jsdelivr.net/npm/vidstack/dist/cdn/prod.js"></script>
+
 </svelte:head>
 
 <div class="video aspect-video w-full bg-zinc-800 relative group focus:outline-none">
 	{#if url}
 		<div class="player h-full w-full object-cover aspect-video focus:outline-none">
-			<!-- remove `controls` attribute if you're designing a custom UI -->
-			<media-player src={url} controls autoplay>
+			<!-- <media-player src={url} controls autoplay>
 				<media-outlet />
-			</media-player>
+			</media-player> -->
+			<Player controls>
+				<Hls version="latest" config={hlsConfig}>
+					<source data-src={url} type="application/x-mpegURL" />
+				</Hls>
+				<!-- ... -->
+			</Player>
 		</div>
 	{:else}
-		<div class="image">
+		<div class="image aspect-video">
 			<img
-				src="https://artworks.thetvdb.com/banners/series/377543/episodes/5fa45daa51da3.jpg"
+				src="https://media.wired.co.uk/photos/606d9b949a15f73a597a1856/1:1/w_2000,h_2000,c_limit/brave-browser.jpg"
 				alt=""
 				class="h-full w-full object-cover "
 			/>

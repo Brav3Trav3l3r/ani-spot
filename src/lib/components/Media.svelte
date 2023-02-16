@@ -1,12 +1,21 @@
 <script>
-	import { Pause, SkipBack, SkipForward, Volume2, ListVideo, Infinity, Mic } from 'lucide-svelte';
+	import {
+		Pause,
+		SkipBack,
+		SkipForward,
+		Volume2,
+		ListVideo,
+		Infinity,
+		Mic,
+		Settings
+	} from 'lucide-svelte';
 	import { page } from '$app/stores';
 	let max = 24;
 	let value = 10;
 	import { isOpen, showList, storeAnime, epId } from '../store/store';
 
-	let animeTitle
-	
+	let animeTitle;
+
 	$: animeTitleChange($storeAnime);
 
 	function animeTitleChange(m) {
@@ -66,6 +75,9 @@
 		>
 			<ListVideo color="#AFAFAF" size="20" />
 		</button>
+		<button>
+			<Settings color="#AFAFAF" size="20" />
+		</button>
 		<div class="volume flex space-x-2 items-center ">
 			<Volume2 color="#AFAFAF" size="20" />
 			<div class="slider-container flex w-28">
@@ -109,12 +121,12 @@
 	input[type='range']::-webkit-slider-thumb {
 		-webkit-appearance: none; /* Override default look */
 		appearance: none;
-		margin-top: -6px; /* Centers thumb on the track */
+		margin-top: -3px; /* Centers thumb on the track */
 		border-radius: 50%;
 		/*custom styles*/
 		background-color: white;
-		height: 1rem;
-		width: 1rem;
+		height: 0.7rem;
+		width: 0.7rem;
 	}
 
 	input[type='range']:focus::-webkit-slider-thumb {

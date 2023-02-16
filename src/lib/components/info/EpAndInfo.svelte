@@ -11,7 +11,7 @@
 
 	let carousel;
 
-	import { afterNavigate } from '$app/navigation';
+	import { afterNavigate, beforeNavigate } from '$app/navigation';
 
 	afterNavigate(() => {
 		carousel.goTo(0, { animated: false });

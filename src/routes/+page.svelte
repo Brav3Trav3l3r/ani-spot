@@ -15,7 +15,7 @@
 
 	<div class="popluar px-8 py-6 ">
 		<h1 class="text-2xl font-semibold tracking-tight pb-8">Popular</h1>
-		<div class="grid grid-cols-2 gap-4">
+		<div class="grid grid-cols-3 gap-4">
 			{#each popular as anime}
 				<a href="/{anime.id}"
 					><div

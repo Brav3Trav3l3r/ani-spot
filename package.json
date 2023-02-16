@@ -33,6 +33,8 @@
 	"type": "module",
 	"dependencies": {
 		"@tailwindcss/line-clamp": "^0.4.2",
+		"@vime/core": "^5.4.0",
+		"@vime/svelte": "^5.4.0",
 		"nprogress": "^0.2.0",
 		"sharp": "^0.31.3",
 		"simply-reactive": "^4.1.0",
