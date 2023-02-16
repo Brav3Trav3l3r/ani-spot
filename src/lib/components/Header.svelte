@@ -14,9 +14,9 @@
 	let title;
 
 	function changeTitle(n) {
-		if (n) {
+		if (n & $storeAnime != null) {
 			title = $storeAnime.title.english ? $storeAnime.title.english : $storeAnime.title.romaji;
-		} else {
+		} else if($page.data.info) {
 			title = $page.data.info.title.english
 				? $page.data.info.title.english
 				: $page.data.info.title.romaji;
@@ -24,7 +24,7 @@
 	}
 
 	afterNavigate(() => {
-		changeTitle($showList)
+		changeTitle(false)
 		if ($page.data.color) {
 			color = $page.data.color;
 		} else {
@@ -60,7 +60,7 @@
 					in:fly={{ x: 40, duration: 200 }}
 					class="text-2xl font-semibold tracking-tighter line-clamp-1"
 				>
-					{title}
+					{title ? title : ''}
 				</h1>
 			</div>
 		{/if}
