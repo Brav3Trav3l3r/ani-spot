@@ -109,49 +109,104 @@
 </div>
 
 {#if info.relations.length > 0}
-	<div class="relations p-8">
+	<div class="relations px-8 pb-8">
 		<div class="heading flex justify-between items-center">
 			<h1 class="text-2xl font-semibold tracking-tight py-4 ">Relations</h1>
-			<h1
-				class="text-sm font-semibold text-[#B2B2B2] hover:underline w-fit underline-offset-2 cursor-pointer"
-			>
-				SHOW ALL
-			</h1>
 		</div>
-		<div class="card-group flex overflow-auto gap-6 scrollbar-hide">
-			{#each info.relations as anime}
-				<Card {anime} />
-			{/each}
+		<div class="card-group flex overflow-auto gap-2 scrollbar-hide">
+			{#if browser && info.relations.lenght > 5}
+				<Carousel
+					bind:this={carousel}
+					let:showPrevPage
+					let:showNextPage
+					dots={false}
+					infinite={false}
+					particlesToShow={5}
+					particlesToScroll={4}
+				>
+					<div
+						slot="prev"
+						on:keydown
+						on:click={showPrevPage}
+						class="custom-arrow custom-arrow-prev rounded-full p-2 absolute right-12 cursor-pointer z-50 -translate-y-12"
+					>
+						<ChevronLeft />
+					</div>
+					{#each info.relations as anime}
+						<Card {anime} />
+					{/each}
+					<div
+						slot="next"
+						on:keydown
+						on:click={showNextPage}
+						class="custom-arrow custom-arrow-next rounded-full p-2 absolute right-2 cursor-pointer z-50 -translate-y-12"
+					>
+						<ChevronRight />
+					</div>
+				</Carousel>
+			{:else}
+				{#each info.relations as anime}
+					<Card {anime} />
+				{/each}
+			{/if}
 		</div>
 	</div>
 {/if}
 
 {#if info.characters.length > 0}
-	<div class="characters px-8">
+	<div class="characters px-8 pb-8 relative">
 		<div class="heading flex justify-between items-center ">
 			<h1 class="text-2xl font-semibold tracking-tight py-4 ">Characteres</h1>
 		</div>
-		<div class="characteres flex overflow-auto gap-6 scrollbar-hide">
-			{#each info.characters as ch}
-				<div
-					class="anime flex flex-col space-y-4 hover:bg-zinc-800/70 bg-[#181818] rounded-lg p-6 w-52 h-90 rounded-medium shrink-0 text-center"
+		<div class="characteres flex gap-6 scrollbar-hide ">
+			{#if browser}
+				<Carousel
+					bind:this={carousel}
+					let:showPrevPage
+					let:showNextPage
+					dots={false}
+					infinite={false}
+					particlesToShow={5}
+					particlesToScroll={4}
 				>
-					<div class="image aspect-square w-full rounded-full truncate">
-						<img src={ch.image} alt="" class="h-full w-full object-cover" />
+					<div
+						slot="prev"
+						on:keydown
+						on:click={showPrevPage}
+						class="custom-arrow custom-arrow-prev rounded-full p-2 absolute right-12 cursor-pointer z-50 -translate-y-12"
+					>
+						<ChevronLeft />
 					</div>
-					<div class="titles ">
-						<h1 class="line-clamp-1">
-							{ch.name.userPreferred ? ch.name.userPreferred : ch.name.full}
-						</h1>
+					{#each info.characters as ch}
+						<div
+							class="anime flex flex-col space-y-4 hover:bg-zinc-800/70 bg-[#181818] rounded-2xl p-6 w-52 h-90 shrink-0 text-center border-8 border-[#121212]"
+						>
+							<div class="image aspect-square w-full rounded-full truncate">
+								<img src={ch.image} alt="" class="h-full w-full object-cover" />
+							</div>
+							<div class="titles ">
+								<h1 class="line-clamp-1">
+									{ch.name.userPreferred ? ch.name.userPreferred : ch.name.full}
+								</h1>
+							</div>
+						</div>
+					{/each}
+					<div
+						slot="next"
+						on:keydown
+						on:click={showNextPage}
+						class="custom-arrow custom-arrow-next rounded-full p-2 absolute right-2 cursor-pointer z-50 -translate-y-12"
+					>
+						<ChevronRight />
 					</div>
-				</div>
-			{/each}
+				</Carousel>
+			{/if}
 		</div>
 	</div>
 {/if}
 
 {#if info.recommendations.length > 0}
-	<div class="recomendations p-8 relative">
+	<div class="recomendations px-8 pb-8 relative ">
 		<div class="heading flex justify-between items-center">
 			<h1 class="text-2xl font-semibold tracking-tight py-4 ">Recomendations</h1>
 		</div>
@@ -163,7 +218,6 @@
 					let:showNextPage
 					dots={false}
 					infinite={false}
-					on:pageChange={(m) => console.log(`Current page index: ${m.detail}`)}
 					particlesToShow={5}
 					particlesToScroll={4}
 				>

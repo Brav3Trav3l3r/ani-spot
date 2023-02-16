@@ -6,7 +6,7 @@
 {#if anime.id}
 	
 	<a href="/{anime.id}"
-		><div class="anime flex flex-col space-y-4 hover:bg-zinc-800/70 bg-[#181818] rounded-lg p-4 w-52 h-90 rounded-medium truncate">
+		><div class="anime flex flex-col space-y-4 hover:bg-zinc-800/70 bg-[#181818] rounded-xl p-4 w-52 h-90 rounded-medium truncate border-4 border-[#121212]">
 			<div class="image aspect-[2/3] w-full rounded-md truncate">
 				<img src={anime.image} alt="" class="h-full w-full object-cover" />
 			</div>
