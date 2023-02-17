@@ -24,7 +24,7 @@
 
 <main
 	in:fly={{ y: 500, duration: 100, easing: quintOut }}
-	class=" eps fixed overflow-auto bottom-[90px] right-0 left-80 top-0 bg-[#121212] pt-16 px-8 z-40 "
+	class=" eps fixed overflow-auto bottom-0 pb-[90px] right-0 left-80 top-0 bg-[#121212] pt-16 px-8 z-40 "
 >
 	{#if $epId != null }
 		<div in:fly={{ y: 50, duration: 400, delay: 100, easing: quintOut }} class="playing mt-8">

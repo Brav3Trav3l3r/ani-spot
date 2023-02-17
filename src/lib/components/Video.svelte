@@ -33,30 +33,16 @@
 	}
 </script>
 
-
-
 <div class="video aspect-video w-full bg-zinc-800 relative group focus:outline-none">
-	{#if url}
-		<div class="player h-full w-full object-cover aspect-video focus:outline-none">
-			<!-- <media-player src={url} controls autoplay>
-				<media-outlet />
-			</media-player> -->
-			<Player controls autoplay>
-				<Hls version="latest" config="{hlsConfig}" >
-					<source data-src={url} type="application/x-mpegURL" />
-				  </Hls>
-				<!-- ... -->
-			</Player>
-		</div>
-	{:else}
-		<div class="image aspect-video">
-			<img
-				src="https://media.wired.co.uk/photos/606d9b949a15f73a597a1856/1:1/w_2000,h_2000,c_limit/brave-browser.jpg"
-				alt=""
-				class="h-full w-full object-cover "
-			/>
-		</div>
-	{/if}
+	<div class="player h-full w-full object-cover aspect-video focus:outline-none">
+
+		<Player controls autoplay>
+			<Hls version="latest" config="{hlsConfig}">
+				<source data-src={url} type="application/x-mpegURL" />
+			  </Hls>
+		</Player>
+	</div>
+
 	<div
 		class="icon absolute top-2 right-2 hidden group-hover:block cursor-pointer p-3 rounded-full aspect-square bg-black/50"
 	>

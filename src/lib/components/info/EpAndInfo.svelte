@@ -179,7 +179,7 @@
 					</div>
 					{#each info.characters as ch}
 						<div
-							class="anime flex flex-col space-y-4 hover:bg-zinc-800/70 bg-[#181818] rounded-2xl p-6 w-52 h-90 shrink-0 text-center border-8 border-[#121212]"
+							class="anime flex flex-col space-y-4 hover:bg-zinc-800/70 bg-[#181818] rounded-2xl p-6 w-56 h-90 shrink-0 text-center border-4 border-[#121212]"
 						>
 							<div class="image aspect-square w-full rounded-full truncate">
 								<img src={ch.image} alt="" class="h-full w-full object-cover" />
@@ -206,7 +206,7 @@
 {/if}
 
 {#if info.recommendations.length > 0}
-	<div class="recomendations px-8 pb-8 relative ">
+	<div class="recomendations px-8  relative ">
 		<div class="heading flex justify-between items-center">
 			<h1 class="text-2xl font-semibold tracking-tight py-4 ">Recomendations</h1>
 		</div>

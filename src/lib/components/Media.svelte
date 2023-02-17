@@ -10,6 +10,8 @@
 		Settings
 	} from 'lucide-svelte';
 	import { page } from '$app/stores';
+	import { fly, scale } from 'svelte/transition';
+
 	let max = 24;
 	let value = 10;
 	import { isOpen, showList, storeAnime, epId } from '../store/store';
@@ -33,6 +35,7 @@
 </script>
 
 <div
+	in:fly={{ y: 40, duration: 300 }}
 	class="media fixed text-white inset-x-0 bottom-0 h-[90px] space-x-8 bg-neutral-900 flex items-center justify-center px-6 border-t-2 z-50 border-zinc-800"
 >
 	<div class="playing flex flex-col w-1/4 ">

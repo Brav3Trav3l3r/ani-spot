@@ -1,10 +1,14 @@
 <script>
 	import { Twitch, Home, Search, Library } from 'lucide-svelte';
 	import { Video } from '$lib/components';
+	import {storeAnime} from '$lib/store/store.js'
+	import { fly, scale } from 'svelte/transition';
+
+
 </script>
 
 <nav
-	class="w-80 fixed left-0 top-0 bottom-[90px] text-white bg-black flex flex-col justify-between "
+	class="w-80 fixed left-0 top-0 pb-[90px] bottom-0 text-white bg-black flex flex-col justify-between "
 >
 	<div class="main px-6">
 		<!-- <div class="icon flex items-center space-x-2">
@@ -40,7 +44,10 @@
 		</div>
 	</div>
 
-	<div class="video">
-		<Video />
-	</div>
+{#if $storeAnime != null}
+		<div 
+		in:fly={{ y: 60, delay:200, duration: 400 }} class="video">
+			<Video />
+		</div>
+{/if}
 </nav>

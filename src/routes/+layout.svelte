@@ -27,10 +27,7 @@
 </script>
 
 <svelte:head>
-	<link
-	rel="stylesheet"
-	href="https://cdn.jsdelivr.net/npm/@vime/core@^5/themes/default.css"
-  />
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@vime/core@^5/themes/default.css" />
 </svelte:head>
 
 <div class="root-layout relative">
@@ -39,11 +36,13 @@
 	<div
 		bind:this={box}
 		on:scroll={getScroll}
-		class="slot main fixed left-80 bottom-[90px] top-0 right-0 overflow-y-auto text-white "
+		class="slot main fixed left-80 bottom-0 pb-[90px] top-0 right-0 overflow-y-auto text-white "
 	>
 		<slot />
 	</div>
-	<Media />
+	{#if $storeAnime != null}
+		<Media />
+	{/if}
 	{#if $isOpen}
 		<MoreEpisodes />
 	{/if}
