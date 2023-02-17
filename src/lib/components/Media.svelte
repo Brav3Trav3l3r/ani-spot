@@ -35,11 +35,11 @@
 <div
 	class="media fixed text-white inset-x-0 bottom-0 h-[90px] space-x-8 bg-neutral-900 flex items-center justify-center px-6 border-t-2 z-50 border-zinc-800"
 >
-	<div class="playing flex flex-col w-2/12 ">
+	<div class="playing flex flex-col w-1/4 ">
 		<h1 class="line-clamp-1">{$epId ? $epId.number + '.' + ' ' + $epId.title : ''}</h1>
 		<h1 class="text-sm text-zinc-400 line-clamp-1">{animeTitle ? animeTitle : ''}</h1>
 	</div>
-	<div class="controls flex flex-col flex-1 space-y-2 items-center  w-8/12">
+	<div class="controls flex flex-col flex-1 space-y-2 items-center  w-2/4">
 		<div class="group flex items-center space-x-6 shrink-0">
 			<div class="volume">
 				<Mic color="#AFAFAF" size="20" />
@@ -67,7 +67,7 @@
 			<h2 class="text-xs text-zinc-400 shrink-0">{max}</h2>
 		</div>
 	</div>
-	<div class="icons-set  gap-4 flex justify-end w-2/12">
+	<div class="icons-set gap-4 flex justify-end w-1/4 ">
 		<button
 			on:click={handleList}
 			disabled={$storeAnime === null || $isOpen === true}
@@ -81,7 +81,7 @@
 		<div class="volume flex space-x-2 items-center ">
 			<Volume2 color="#AFAFAF" size="20" />
 			<div class="slider-container flex w-28">
-				<input type="range" min="0" max="100" value="100" class="slider  cursor-pointer" />
+				<input type="range" min="0" max="100" value="100" class="slider w-full cursor-pointer" />
 			</div>
 		</div>
 	</div>
@@ -101,7 +101,6 @@
 		appearance: none;
 		background: transparent;
 		cursor: pointer;
-		width: 15rem;
 	}
 
 	/* Removes default focus */
@@ -138,20 +137,20 @@
 	/******** Firefox styles ********/
 	/* slider track */
 	input[type='range']::-moz-range-track {
-		background-color: #c084fc;
+		background-color: #5e5e5e;
 		border-radius: 0.5rem;
-		height: 0.5rem;
+		height: 0.3rem;
 	}
 
 	/* slider thumb */
 	input[type='range']::-moz-range-thumb {
 		border: none; /*Removes extra border that FF applies*/
-		border-radius: 0; /*Removes default border-radius that FF applies*/
-
+		margin-top: -3px; /* Centers thumb on the track */
+		border-radius: 50%;
 		/*custom styles*/
 		background-color: white;
-		height: 1rem;
-		width: 1rem;
+		height: 0.7rem;
+		width: 0.7rem;
 	}
 
 	input[type='range']:focus::-moz-range-thumb {

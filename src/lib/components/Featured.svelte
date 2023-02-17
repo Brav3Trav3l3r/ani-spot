@@ -16,7 +16,7 @@
             <h1>|</h1>
             <h1>Action Drama Adventure</h1>
         </div>
-        <div class="title text-4xl md:text-5xl lg:text-6xl xl:text-7xl line-clamp-2 font-bold mt-2">
+        <div class="title text-4xl md:text-5xl lg:text-6xl xl:text-6xl line-clamp-2 font-bold mt-2">
             <h1>Bleach Thousand Year Blood War</h1>
         </div>
         <div class="buttons flex z-10 space-x-6 items-center mt-8">

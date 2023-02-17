@@ -26,6 +26,13 @@
 	}
 </script>
 
+<svelte:head>
+	<link
+	rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/@vime/core@^5/themes/default.css"
+  />
+</svelte:head>
+
 <div class="root-layout relative">
 	<Header {yScroll} />
 	<Navbar />

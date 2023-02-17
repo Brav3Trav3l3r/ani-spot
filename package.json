@@ -1,4 +1,5 @@
 {
+	"type": "module",
 	"name": "anisvelte",
 	"version": "0.0.1",
 	"private": true,
@@ -29,16 +30,16 @@
 		"tailwindcss": "^3.2.4",
 		"vite": "^4.0.0",
 		"vitest": "^0.25.3"
+		
 	},
-	"type": "module",
 	"dependencies": {
 		"@tailwindcss/line-clamp": "^0.4.2",
-		"@vime/core": "^5.4.0",
-		"@vime/svelte": "^5.4.0",
 		"nprogress": "^0.2.0",
 		"sharp": "^0.31.3",
 		"simply-reactive": "^4.1.0",
 		"svelte-icons": "^2.1.0",
-		"tailwind-scrollbar-hide": "^1.1.7"
+		"tailwind-scrollbar-hide": "^1.1.7",
+		"@vime/core": "^5.4.0",
+		"@vime/svelte": "^5.4.0"
 	}
 }

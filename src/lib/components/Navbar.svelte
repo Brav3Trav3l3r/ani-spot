@@ -40,7 +40,7 @@
 		</div>
 	</div>
 
-	<div class="video ">
+	<div class="video">
 		<Video />
 	</div>
 </nav>

@@ -33,9 +33,7 @@
 	}
 </script>
 
-<svelte:head>
 
-</svelte:head>
 
 <div class="video aspect-video w-full bg-zinc-800 relative group focus:outline-none">
 	{#if url}
@@ -43,10 +41,10 @@
 			<!-- <media-player src={url} controls autoplay>
 				<media-outlet />
 			</media-player> -->
-			<Player controls>
-				<Hls version="latest" config={hlsConfig}>
+			<Player controls autoplay>
+				<Hls version="latest" config="{hlsConfig}" >
 					<source data-src={url} type="application/x-mpegURL" />
-				</Hls>
+				  </Hls>
 				<!-- ... -->
 			</Player>
 		</div>
