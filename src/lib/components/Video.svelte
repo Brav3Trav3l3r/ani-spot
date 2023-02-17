@@ -1,12 +1,15 @@
 <script>
-	import { Player, Hls } from '@vime/svelte';
+	import 'vidstack/styles/base.css';
+	import 'vidstack/styles/ui/buttons.css';
+	import 'vidstack/styles/ui/sliders.css';
+
+	import { defineCustomElements } from 'vidstack/elements';
+
+	defineCustomElements();
+
 	import { Maximize2 } from 'lucide-svelte';
 	import { epId } from '$lib/store/store';
 	let url;
-
-	const hlsConfig = {
-		// ...
-	};
 
 	$: if ($epId !== null) {
 		getUrl($epId.id).then((result) => {
@@ -35,12 +38,13 @@
 
 <div class="video aspect-video w-full bg-zinc-800 relative group focus:outline-none">
 	<div class="player h-full w-full object-cover aspect-video focus:outline-none">
-
-		<Player controls autoplay>
-			<Hls version="latest" config="{hlsConfig}">
-				<source data-src={url} type="application/x-mpegURL" />
-			  </Hls>
-		</Player>
+		<!-- remove `controls` attribute if you're designing a custom UI -->
+		<media-player
+			src={url}
+			controls
+		>
+			<media-outlet />
+		</media-player>
 	</div>
 
 	<div
