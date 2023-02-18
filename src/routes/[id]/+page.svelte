@@ -16,7 +16,7 @@
 </script>
 
 {#if info.cover != info.image}
-	<div class="cover-image h-[350px] fixed top-0 left-80 right-[18px] z-0 ">
+	<div data-sveltekit-preload-code='eager' class="cover-image h-[350px] fixed top-0 left-80 right-[18px] z-0 ">
 		<img src={info.cover} alt="" class="h-full w-full object-cover brightness-75" />
 	</div>
 {/if}
@@ -32,7 +32,7 @@
 		</div>
 		<div class="main relative bg-[#121212]">
 			<div class="main relative z-20">
-				<Controls on:click={() => (visible = !visible)} />
+				<Controls/>
 				<EpAndInfo {info} on:click={openEps} />
 			</div>
 
@@ -46,15 +46,3 @@
 
 
 
-{#if visible}
-	<div
-		on:keydown
-		on:click|self={() => (visible = false)}
-		class="backdrop  top-0 right-0 left-0 bottom-[90px] bg-black/90 fixed z-30 "
-	>
-		<div
-			in:scale={{ duration: 200 }}
-			class="trailer-module relative top-20 m-auto rounded-md h-96 aspect-video bg-zinc-800 truncate"
-		/>
-	</div>
-{/if}

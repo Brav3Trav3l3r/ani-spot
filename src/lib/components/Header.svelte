@@ -1,16 +1,15 @@
 <script>
 	import { Play, Search } from 'lucide-svelte';
+	import SearchForm from './SearchForm.svelte'
 	import tippy from '$lib/actions/tippy';
 	import { fly, scale } from 'svelte/transition';
 	import { ChevronLeft, ChevronRight, Triangle } from 'lucide-svelte';
 	import profile from '../../assets/eren.png';
 	import { page } from '$app/stores';
-	import { isOpen, storeAnime, showList } from '../store/store';
+	import { isOpen, storeAnime, showList } from '../store/store.js';
 	import { afterNavigate } from '$app/navigation';
 	export let yScroll;
 	let color;
-
-	$: console.log($page);
 
 	$: changeTitle($showList);
 
@@ -37,8 +36,8 @@
 </script>
 
 <div
-	class="header h-16 fixed left-80 right-[18px] text-white top-0 z-50"
-	style:background-color={$isOpen || yScroll > 264 || $page.route.id === '/search'
+	class="header h-16 fixed left-80 right-0 text-white top-0 z-50 bg-[#070707]"
+	style:background-color={$isOpen || yScroll > 264 || $page.url.pathname.startsWith('/search')
 		? color
 		: 'transparent'}
 >
@@ -68,13 +67,8 @@
 					{title ? title : ''}
 				</h1>
 			</div>
-		{:else if $page.route.id === '/search'}
-			<div class="serach bg-white w-80 rounded-full ml-6 flex px-4 items-center">
-				<div class="icon">
-					<Search color="black" size="28" />
-				</div>
-				<h1 class="text-zinc-500 text-sm px-4 py-3 ">What you looking for</h1>
-			</div>
+		{:else if $page.url.pathname.startsWith('/search')}
+			<SearchForm/>
 		{/if}
 		<button
 			use:tippy={{
@@ -103,6 +97,6 @@
 	<div
 		class="{$isOpen || yScroll > 264
 			? 'opacity-40'
-			: 'opacity-0'} bg-[#121212] absolute inset-0 z-0"
+			: 'opacity-0'} bg-[#070707] absolute inset-0 z-0"
 	/>
 </div>

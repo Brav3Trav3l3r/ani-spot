@@ -15,6 +15,7 @@ export const load= async({fetch, params})=>{
 
     return {
         info: infoJson,
-        color
+        color,
+        title: infoJson.title.english ? infoJson.title.english : infoJson.title.romaji 
     }
 }

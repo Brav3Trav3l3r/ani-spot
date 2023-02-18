@@ -9,5 +9,6 @@ export const load = async({fetch})=>{
         trend: trending.ok ?  trending.json() : undefined,
         recent:  recentEps.ok ? recentEps.json() : undefined,
         popular:  popularAnime.ok ?  popularAnime.json() : undefined,
+        title: 'Home'
     }
 }

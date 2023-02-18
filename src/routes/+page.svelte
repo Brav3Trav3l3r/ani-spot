@@ -8,11 +8,8 @@
 	$: trend = trend.results;
 </script>
 
-<div class="home">
-	<Featured />
-	<AnimeGroup data={trend} title="Trending" />
-	<AnimeGroup data={recent} title="Recent Releases" />
-
+<div class="home pt-16">
+	<!-- <Featured /> -->
 	<div class="popluar px-8 py-6 ">
 		<h1 class="text-2xl font-semibold tracking-tight pb-8">Popular</h1>
 		<div class="grid grid-cols-3 gap-4">
@@ -43,4 +40,7 @@
 			{/each}
 		</div>
 	</div>
+	<AnimeGroup data={trend} title="Trending" />
+	<AnimeGroup data={recent} title="Recent Releases" />
+
 </div>

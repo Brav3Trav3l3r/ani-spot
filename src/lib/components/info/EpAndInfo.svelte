@@ -8,6 +8,7 @@
 	let defImage = 'https://wallpapercave.com/wp/wp9238698.jpg';
 	import { isOpen } from '$lib/store/store';
 	import { Card } from '$lib/components';
+	let maxLength = 400;
 
 	let carousel;
 
@@ -60,13 +61,13 @@
 		{/if}
 	</div>
 	<div class="info w-2/5">
-		<h1 class="text-2xl font-semibold tracking-tight">Info</h1>
+		<h1 class="text-2xl font-medium tracking-tight">Info</h1>
 		<div class="flex mt-4 space-x-4">
 			<div class="image rounded w-36 brightness-95 aspect-[2/3] truncate shrink-0">
 				<img src={info.image} alt="" class="w-full h-full object-cover" />
 			</div>
 			<div class="group space-y-1">
-				<h1 class="text-xl font-semibold">
+				<h1 class="text-xl font-medium">
 					{info.title.english ? info.title.english : info.title.romaji}
 				</h1>
 				<div class="a1 text-zinc-400 flex space-x-2 text-sm font-medium">
@@ -104,14 +105,30 @@
 			</div>
 		</div>
 
-		<p class=" line-clamp-5 mt-4 text-sm text-zinc-400">{@html info.description}</p>
+		{#if info.description.length > maxLength}
+			<p class=" mt-4 text-sm text-zinc-400">
+				{@html info.description.slice(0, maxLength)} ...
+				<button on:click={() => (maxLength = 100000)} class="text-sm text-purple-400"
+					>Read More</button
+				>
+			</p>
+		{:else if info.description.length < 400}
+			<p class="mt-4 text-sm text-zinc-400">
+				{@html info.description}
+			</p>
+		{:else}
+			<p class="mt-4 text-sm text-zinc-400">
+				{@html info.description}
+			</p>
+			<button on:click={() => (maxLength = 400)} class="text-sm text-purple-400">Read Less</button>
+		{/if}
 	</div>
 </div>
 
 {#if info.relations.length > 0}
 	<div class="relations px-8 pb-8 relative">
 		<div class="heading flex justify-between items-center">
-			<h1 class="text-2xl font-semibold tracking-tight py-4 ">Relations</h1>
+			<h1 class="text-2xl font-medium tracking-tight py-4 ">Relations</h1>
 		</div>
 		<div class="card-group flex gap-2 scrollbar-hide">
 			{#if browser & (info.relations.length > 5)}
@@ -156,7 +173,7 @@
 {#if info.characters.length > 0}
 	<div class="characters px-8 pb-8 relative">
 		<div class="heading flex justify-between items-center ">
-			<h1 class="text-2xl font-semibold tracking-tight py-4 ">Characteres</h1>
+			<h1 class="text-2xl font-medium tracking-tight py-4 ">Characteres</h1>
 		</div>
 		<div class="characteres flex gap-6 scrollbar-hide ">
 			{#if browser}

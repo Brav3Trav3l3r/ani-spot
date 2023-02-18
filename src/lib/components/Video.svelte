@@ -36,12 +36,13 @@
 	}
 </script>
 
-<div class="video aspect-video w-full bg-zinc-800 relative group focus:outline-none">
-	<div class="player h-full w-full object-cover aspect-video focus:outline-none">
+<div class="video aspect-video w-full bg-zinc-800 relative group focus:outline-none ">
+	<div class="player h-full w-full object-cover aspect-video focus:outline-none ">
 		<!-- remove `controls` attribute if you're designing a custom UI -->
 		<media-player
 			src={url}
 			controls
+			autoplay
 		>
 			<media-outlet />
 		</media-player>

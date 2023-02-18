@@ -18,8 +18,6 @@
 	</div>
 	{#if $page.data.info && $page.data.info.trailer}
 		<div
-			on:keydown
-			on:click
 			class="trailer px-6 py-2 border-2 border-zinc-400/60 rounded-md hover:cursor-pointer"
 		>
 			{#if $page.data.info.type === 'MUSIC'}
