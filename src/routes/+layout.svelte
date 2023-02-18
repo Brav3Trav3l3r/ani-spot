@@ -7,7 +7,6 @@
 	import { beforeNavigate, afterNavigate } from '$app/navigation';
 	import {page} from '$app/stores'
 
-	$:console.log($page)
 
 	NProgress.configure({ showSpinner: false });
 

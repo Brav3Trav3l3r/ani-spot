@@ -15,8 +15,12 @@
 	});
 </script>
 
-<div class="group px-8 pb-8 relative">
-	<h1 class="text-2xl font-semibold tracking-tight py-4 ">{title}</h1>
+<div class="group relative">
+	<div class="headings flex space-x-8 items-center">
+		<h1 class="text-2xl font-semibold tracking-tight py-4 ">{title}</h1>
+		<button class="h-fit border hover:bg-white hover:text-black px-6 py-1 rounded-full"><span class="text-xs font-medium">SHOW ALL</span></button>
+	</div>
+	
 	<div class="card-group flex gap-6 scrollbar-hide">
 		{#if browser}
 			<Carousel

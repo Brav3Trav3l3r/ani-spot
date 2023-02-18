@@ -8,9 +8,9 @@
 	$: trend = trend.results;
 </script>
 
-<div class="home pt-16">
+<div class="home py-16 px-8 space-y-8">
 	<!-- <Featured /> -->
-	<div class="popluar px-8 py-6 ">
+	<div class="popluar">
 		<h1 class="text-2xl font-semibold tracking-tight pb-8">Popular</h1>
 		<div class="grid grid-cols-3 gap-4">
 			{#each popular as anime}

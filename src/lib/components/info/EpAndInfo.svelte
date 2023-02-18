@@ -8,7 +8,7 @@
 	let defImage = 'https://wallpapercave.com/wp/wp9238698.jpg';
 	import { isOpen } from '$lib/store/store';
 	import { Card } from '$lib/components';
-	let maxLength = 400;
+	let maxLength = 350;
 
 	let carousel;
 
@@ -78,7 +78,6 @@
 				<h1 class={`${info.status === 'Completed' ? 'text-red-500' : 'text-green-500'}`}>
 					{info.status}
 				</h1>
-				<!-- <h1><span>next release:</span> </h1> -->
 				{#if info.nextAiringEpisode}
 					<div class="airing text-zinc-400">
 						<h1>
@@ -112,7 +111,7 @@
 					>Read More</button
 				>
 			</p>
-		{:else if info.description.length < 400}
+		{:else if info.description.length < 350}
 			<p class="mt-4 text-sm text-zinc-400">
 				{@html info.description}
 			</p>
@@ -120,7 +119,7 @@
 			<p class="mt-4 text-sm text-zinc-400">
 				{@html info.description}
 			</p>
-			<button on:click={() => (maxLength = 400)} class="text-sm text-purple-400">Read Less</button>
+			<button on:click={() => (maxLength = 350)} class="text-sm text-purple-400">Read Less</button>
 		{/if}
 	</div>
 </div>

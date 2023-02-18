@@ -3,7 +3,6 @@
 	import { Search } from 'lucide-svelte';
     import {page} from '$app/stores'
 
-    $:console.log($page)
 
 	let searchBar;
     $: searchQuery = $page.params.query || ''

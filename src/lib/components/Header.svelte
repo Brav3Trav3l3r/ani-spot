@@ -11,6 +11,7 @@
 	export let yScroll;
 	let color;
 
+
 	$: changeTitle($showList);
 
 	let title;
@@ -37,7 +38,7 @@
 
 <div
 	class="header h-16 fixed left-80 right-0 text-white top-0 z-50 bg-[#070707]"
-	style:background-color={$isOpen || yScroll > 264 || $page.url.pathname.startsWith('/search')
+	style:background-color={$isOpen || yScroll > 264
 		? color
 		: 'transparent'}
 >
@@ -50,7 +51,7 @@
 				<ChevronRight color="#d1d1d1" size="28" strokeWidth="1" />
 			</div>
 		</div>
-		{#if $isOpen || (yScroll > 360 && ($page.data.info || $storeAnime) && $page.route.id != '/search')}
+		{#if ($page.data.info || $storeAnime) && (yScroll > 360 || $isOpen ) && ($page.route.id === '/[id]')}
 			<div class="info flex items-center px-4 space-x-4">
 				<div
 					in:scale={{ duration: 100 }}

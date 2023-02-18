@@ -2,8 +2,8 @@
 	export let info;
 	export let color;
 	import { Verified } from 'lucide-svelte';
-	let height;
-	let width;
+
+	$: animeTitle = info.title.english ? info.title.english : info.title.romaji
 </script>
 
 <div class="cover h-[350px] w-full relative z-20">
@@ -28,11 +28,9 @@
 			</div>
 		{/if}
 		<h1
-			bind:clientWidth={width}
-			bind:clientHeight={height}
-			class=" title-text text-7xl font-bold line-clamp-2 overflow-hidden tracking-tight pt-1 pb-4"
+			class="{animeTitle.length > 30 ? 'text-5xl' : 'text-7xl'} title-text font-bold line-clamp-3 overflow-hidden tracking-tight pt-1 pb-4"
 		>
-			{info.title.english ? info.title.english : info.title.romaji}
+			{animeTitle}
 		</h1>
 		<div class="group flex space-x-4 mt-4 p-1 pt-1">
 			<div class="nest-group flex space-x-2">
