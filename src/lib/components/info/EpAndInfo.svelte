@@ -130,7 +130,7 @@
 			<h1 class="text-2xl font-medium tracking-tight py-4 ">Relations</h1>
 		</div>
 		<div class="card-group flex gap-2 scrollbar-hide">
-			{#if browser & (info.relations.length > 5)}
+			{#if browser && info.relations.length > 5}
 				<Carousel
 					bind:this={carousel}
 					let:showPrevPage
@@ -175,7 +175,7 @@
 			<h1 class="text-2xl font-medium tracking-tight py-4 ">Characteres</h1>
 		</div>
 		<div class="characteres flex gap-6 scrollbar-hide ">
-			{#if browser}
+			{#if browser && info.characters.length > 5}
 				<Carousel
 					bind:this={carousel}
 					let:showPrevPage
@@ -216,6 +216,21 @@
 						<ChevronRight />
 					</div>
 				</Carousel>
+			{:else}
+				{#each info.characters as ch}
+					<div
+						class="anime flex flex-col space-y-4 hover:bg-zinc-800/70 bg-[#181818] rounded-2xl p-6 w-56 h-90 shrink-0 text-center border-4 border-[#121212]"
+					>
+						<div class="image aspect-square w-full rounded-full truncate">
+							<img src={ch.image} alt="" class="h-full w-full object-cover" />
+						</div>
+						<div class="titles ">
+							<h1 class="line-clamp-1">
+								{ch.name.userPreferred ? ch.name.userPreferred : ch.name.full}
+							</h1>
+						</div>
+					</div>
+				{/each}
 			{/if}
 		</div>
 	</div>
@@ -227,7 +242,7 @@
 			<h1 class="text-2xl font-semibold tracking-tight py-4 ">Recomendations</h1>
 		</div>
 		<div class="card-group flex gap-6 scrollbar-hide">
-			{#if browser}
+			{#if browser && info.recommendations.length > 5}
 				<Carousel
 					bind:this={carousel}
 					let:showPrevPage
@@ -257,6 +272,10 @@
 						<ChevronRight />
 					</div>
 				</Carousel>
+				{:else}
+				{#each info.recommendations as anime}
+					<Card {anime} />
+				{/each}
 			{/if}
 		</div>
 	</div>

@@ -39,7 +39,7 @@
 <div
 	class="header h-16 fixed left-80 right-0 text-white top-0 z-50 bg-[#070707]"
 	style:background-color={$isOpen || yScroll > 264
-		? color
+		? color 
 		: 'transparent'}
 >
 	<div class="interact relative items-center flex px-8 z-10 h-full w-full">

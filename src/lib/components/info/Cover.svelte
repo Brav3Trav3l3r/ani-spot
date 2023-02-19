@@ -28,7 +28,7 @@
 			</div>
 		{/if}
 		<h1
-			class="{animeTitle.length > 30 ? 'text-5xl' : 'text-7xl'} title-text font-bold line-clamp-3 overflow-hidden tracking-tight pt-1 pb-4"
+			class="{animeTitle.length > 30 ? 'text-6xl' : 'text-7xl'} title-text font-bold line-clamp-3 overflow-hidden tracking-tight pt-1 pb-4"
 		>
 			{animeTitle}
 		</h1>
