@@ -65,7 +65,7 @@
 		{:else}
 			<a href="/login"
 				><div class="login bg-purple-500 py-2 px-6 rounded-full">
-					<h1 class="text-sm">LOGIN</h1>
+					<h1 class="text-xs">LOGIN</h1>
 				</div></a
 			>
 		{/if}
