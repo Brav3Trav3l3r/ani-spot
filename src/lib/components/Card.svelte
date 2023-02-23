@@ -1,5 +1,6 @@
 <script>
 	export let anime;
+	export let recentEpisode = false
 	$: animeTitle = anime.title.english ? anime.title.english : anime.title.romaji
 	
 </script>
@@ -8,8 +9,13 @@
 	
 	<a href="/{anime.id}"
 		><div class="anime flex flex-col space-y-4 hover:bg-zinc-800/70 bg-[#181818] rounded-xl p-4 w-56 h-[400px] rounded-medium border-4 border-[#121212]">
-			<div class="image aspect-[2/3] w-full shrink-0 rounded-md truncate">
+			<div class="image aspect-[2/3] w-full rounded-md truncate relative">
 				<img src={anime.image} alt="" class="h-full w-full object-cover" />
+				{#if recentEpisode}
+					<div class="absolute px-3 py-1 top-2 flex items-center justify-center right-2 rounded-md bg-purple-400">
+						<h1 class="text-white font-medium">ep {anime.episodeNumber}</h1>
+					</div>
+				{/if}
 			</div>
 			<div class="titles flex flex-col justify-between flex-1">
 				<h1 class="line-clamp-2 overflow-scroll">

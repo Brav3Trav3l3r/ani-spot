@@ -1,5 +1,5 @@
 export const load= async({fetch, params})=>{
-    const infoRes = await fetch(`https://api.consumet.org/meta/anilist/info/${params.id}`)
+    const infoRes = await fetch(`https://consumet-api-delta.vercel.app/meta/anilist/info/${params.id}`)
     const infoJson = await infoRes.json()
 
     let color = null
@@ -16,6 +16,6 @@ export const load= async({fetch, params})=>{
     return {
         info: infoJson,
         color,
-        title: infoJson.title.english ? infoJson.title.english : infoJson.title.romaji 
+        title: infoRes.ok ? (infoJson.title.english ? infoJson.title.english : infoJson.title.romaji) : '' 
     }
 }

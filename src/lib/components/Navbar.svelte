@@ -10,7 +10,7 @@
 <nav
 	class="w-80 fixed left-0 top-0 pb-[90px] bottom-0 text-white bg-black flex flex-col justify-between "
 >
-	<div class="main px-6">
+	<div class="main px-8">
 		<!-- <div class="icon flex items-center space-x-2">
 			<div class="icon"><Twitch size="48" /></div>
 			<h1 class="text-3xl font-semibold">Twitch</h1>
@@ -40,7 +40,6 @@
 			<a href="/" class="hover:text-white">Top 100</a>
 			<a href="/" class="hover:text-white">Weekly Trending</a>
 			<a href="/" class="hover:text-white">Most Watched</a>
-			<a href="/" class="hover:text-white">Most Liked</a>
 		</div>
 	</div>
 

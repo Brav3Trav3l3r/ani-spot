@@ -15,6 +15,7 @@
 	import { afterNavigate, beforeNavigate } from '$app/navigation';
 
 	afterNavigate(() => {
+		maxLength = 350;
 		carousel.goTo(0, { animated: false });
 	});
 </script>
@@ -46,7 +47,7 @@
 
 			<button
 				on:click={() => isOpen.set(true)}
-				class="text-sm font-semibold text-[#B2B2B2] hover:underline w-fit underline-offset-2 cursor-pointer mt-4"
+				class="text-sm font-semibold text-[#B2B2B2] hover:underline underline-offset-2 cursor-pointer mt-4 w-fit "
 				>{#if info.episodes.length > 0 && info.nextAiringEpisode && info.nextAiringEpisode.episode <= info.episodes.length}
 					{info.nextAiringEpisode.episode - 1}/{info.episodes.lenght}
 				{:else if info.episodes.length}
@@ -219,7 +220,7 @@
 			{:else}
 				{#each info.characters as ch}
 					<div
-						class="anime flex flex-col space-y-4 hover:bg-zinc-800/70 bg-[#181818] rounded-2xl p-6 w-56 h-90 shrink-0 text-center border-4 border-[#121212]"
+						class="anime grid grid-cols-5 hover:bg-zinc-800/70 bg-[#181818] rounded-2xl p-6 w-56 h-90 shrink-0 text-center border-4 border-[#121212]"
 					>
 						<div class="image aspect-square w-full rounded-full truncate">
 							<img src={ch.image} alt="" class="h-full w-full object-cover" />
@@ -272,10 +273,12 @@
 						<ChevronRight />
 					</div>
 				</Carousel>
-				{:else}
-				{#each info.recommendations as anime}
-					<Card {anime} />
-				{/each}
+			{:else}
+				<div class="group grid grid-cols-5">
+					{#each info.recommendations as anime}
+						<Card {anime} />
+					{/each}
+				</div>
 			{/if}
 		</div>
 	</div>

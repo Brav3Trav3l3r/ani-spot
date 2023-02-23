@@ -2,8 +2,13 @@
 	export let info;
 	export let color;
 	import { Verified } from 'lucide-svelte';
+	let animeTitle;
 
-	$: animeTitle = info.title.english ? info.title.english : info.title.romaji
+	$: titleSwap(info);
+
+	const titleSwap = async () => {
+		animeTitle = info.title.english ? info.title.english : info.title.romaji;
+	};
 </script>
 
 <div class="cover h-[350px] w-full relative z-20">
@@ -28,7 +33,9 @@
 			</div>
 		{/if}
 		<h1
-			class="{animeTitle.length > 30 ? 'text-6xl' : 'text-7xl'} title-text font-bold line-clamp-3 overflow-hidden tracking-tight pt-1 pb-4"
+			class="{animeTitle.length > 30
+				? 'text-6xl'
+				: 'text-7xl'} title-text font-bold line-clamp-3 overflow-hidden tracking-tight pt-1 pb-4"
 		>
 			{animeTitle}
 		</h1>

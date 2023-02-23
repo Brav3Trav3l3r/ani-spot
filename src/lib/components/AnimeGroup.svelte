@@ -1,5 +1,6 @@
 <script>
 	import { Card } from '$lib/components';
+	export let recentEpisode = false
 	import Carousel from 'svelte-carousel';
 	import { browser } from '$app/environment';
 	import { ArrowLeftRight, Heart, ChevronRight, ChevronLeft } from 'lucide-svelte';
@@ -18,7 +19,6 @@
 <div class="group relative">
 	<div class="headings flex space-x-8 items-center">
 		<h1 class="text-2xl font-semibold tracking-tight py-4 ">{title}</h1>
-		<button class="h-fit border hover:bg-white hover:text-black px-6 py-1 rounded-full"><span class="text-xs font-medium">SHOW ALL</span></button>
 	</div>
 	
 	<div class="card-group flex gap-6 scrollbar-hide">
@@ -41,7 +41,7 @@
 					<ChevronLeft />
 				</div>
 				{#each data as anime}
-					<Card {anime} />
+					<Card {anime} {recentEpisode}/>
 				{/each}
 				<div
 					slot="next"

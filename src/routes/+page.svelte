@@ -12,7 +12,7 @@
 	<!-- <Featured /> -->
 	<div class="popluar">
 		<h1 class="text-2xl font-semibold tracking-tight pb-8">Popular</h1>
-		<div class="grid grid-cols-3 gap-4">
+		<div class="grid grid-cols-3 gap-x-6 gap-y-4">
 			{#each popular as anime}
 				<a href="/{anime.id}"
 					><div
@@ -41,6 +41,6 @@
 		</div>
 	</div>
 	<AnimeGroup data={trend} title="Trending" />
-	<AnimeGroup data={recent} title="Recent Releases" />
+	<AnimeGroup data={recent} recentEpisode = {true} title="Recent Releases" />
 
 </div>

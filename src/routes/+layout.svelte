@@ -1,12 +1,26 @@
 <script>
 	import '../app.css';
 	import { isOpen, storeAnime, showList } from '../lib/store/store';
-	import { Navbar, Media, Header, MoreEpisodes } from '$lib/components';
+	import { Navbar, Media, Header, MoreEpisodes, Auth } from '$lib/components';
 	import NProgress from 'nprogress';
 	import 'nprogress/nprogress.css';
 	import { beforeNavigate, afterNavigate } from '$app/navigation';
-	import {page} from '$app/stores'
+	import { page } from '$app/stores';
+	import { supabase } from '$lib/supabaseClient';
+	import { invalidate } from '$app/navigation';
+	import { onMount } from 'svelte';
 
+	onMount(() => {
+		const {
+			data: { subscription }
+		} = supabase.auth.onAuthStateChange(() => {
+			invalidate('supabase:auth');
+		});
+
+		return () => {
+			subscription.unsubscribe();
+		};
+	});
 
 	NProgress.configure({ showSpinner: false });
 
@@ -38,7 +52,9 @@
 </svelte:head>
 
 <div class="root-layout relative">
-	<Header {yScroll} />
+	{#if $page.route.id != '/login'}
+		<Header {yScroll} />
+	{/if}
 	<Navbar />
 	<div
 		bind:this={box}
@@ -51,10 +67,12 @@
 				class="gradient absolute top-0 h-80 inset-x-0 z-0 opacity-30"
 			/>
 		{/if}
+
 		<div class="slot relative z-10">
 			<slot />
 		</div>
 	</div>
+
 	{#if $storeAnime != null}
 		<Media />
 	{/if}

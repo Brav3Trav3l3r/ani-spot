@@ -40,7 +40,7 @@
 >
 	<div class="playing flex flex-col w-1/4 ">
 		<h1 class="line-clamp-1">{$epId ? $epId.number + '.' + ' ' + $epId.title : ''}</h1>
-		<h1 class="text-sm text-zinc-400 line-clamp-1">{animeTitle ? animeTitle : ''}</h1>
+		<a href="/{$storeAnime.id}"><h1 class="text-sm text-zinc-400 line-clamp-1 hover:underline underline-offset-2">{animeTitle ? animeTitle : ''}</h1></a>
 	</div>
 	<div class="controls flex flex-col flex-1 space-y-2 items-center  w-2/4">
 		<div class="group flex items-center space-x-6 shrink-0">
