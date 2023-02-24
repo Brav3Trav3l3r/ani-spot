@@ -56,9 +56,17 @@
 					>
 						<a href="/" class="">Setting</a></MenuItem
 					>
-					
-					<MenuItem class={({ active }) => (active ? 'bg-red-400 rounded p-2' : 'transparent p-2 border-t-2 border-zinc-600/50')}>
-						<button on:click={signOut} disabled={loading}>Log Out</button>
+
+					<MenuItem
+						on:click={signOut}
+						class={({ active }) =>
+							active ? 'bg-red-400 rounded p-2' : 'transparent p-2 border-t-2 border-zinc-600/50'}
+					>
+						<input
+							type="submit"
+							value={loading ? 'Logging Out' : 'Log Out'}
+							disabled={loading}
+						/>
 					</MenuItem>
 				</MenuItems>
 			</Menu>
