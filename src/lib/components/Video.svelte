@@ -27,7 +27,7 @@
 
 	async function getUrl(id) {
 		const res = await fetch(
-			`https://cors.consumet.stream/https://consumet-api-delta.vercel.app/meta/anilist/watch/${id}`
+			`https://cors.consumet.stream/https://api-consumet-rust.vercel.app/meta/anilist/watch/${id}`
 		);
 		const data = await res.json();
 		const sources = data.sources;
