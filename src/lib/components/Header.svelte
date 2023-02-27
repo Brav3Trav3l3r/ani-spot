@@ -35,10 +35,10 @@
 </script>
 
 <div
-	class="header h-16 fixed left-80 right-0 text-white top-0 z-50 bg-[#070707]"
+	class="header h-16 fixed left-80 right-[18px] text-white top-0 z-50 bg-[#070707]"
 	style:background-color={$isOpen || yScroll > 264 ? color : 'transparent'}
 >
-	<div class="interact relative items-center flex px-8 z-10 h-full w-full">
+	<div class="interact relative items-center flex px-8 z-10 h-full w-full ">
 		<div class="arrows flex space-x-2 ">
 			<div class="left-arrow bg-black/80 p-1 rounded-full cursor-pointer">
 				<ChevronLeft color="#d1d1d1" size="28" strokeWidth="1" />

@@ -72,22 +72,4 @@
 	</div>
 </div>
 
-<!-- <div class="main py-16 px-8">
-	<form class="flex" on:submit|preventDefault={handleLogin}>
-		<div class="">
-			<h1 class="header">Supabase + SvelteKit</h1>
-			<p class="description">Sign in via magic link with your email below</p>
-			<div>
-				<input class="inputField" type="email" placeholder="Your email" bind:value={email} />
-			</div>
-			<div>
-				<input
-					type="submit"
-					class="button block"
-					value={loading ? 'Loading' : 'Send magic link'}
-					disabled={loading}
-				/>
-			</div>
-		</div>
-	</form>
-</div> -->
+
