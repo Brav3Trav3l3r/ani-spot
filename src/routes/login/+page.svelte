@@ -9,10 +9,10 @@
 			loading = true;
 			const { error } = await supabase.auth.signInWithOtp({ email });
 			if (error) throw error;
-			alert('Check your email for the login link!');
+			console.error('Check your email for the login link!');
 		} catch (error) {
 			if (error instanceof Error) {
-				alert(error.message);
+				console.error(error.message);
 			}
 		} finally {
 			loading = false;
@@ -39,7 +39,7 @@
 					<label for="email-address" class="sr-only">Email address</label>
 					<input
 						id="email-address"
-                        bind:value={email}
+						bind:value={email}
 						name="email"
 						type="email"
 						autocomplete="email"
@@ -71,5 +71,3 @@
 		</form>
 	</div>
 </div>
-
-

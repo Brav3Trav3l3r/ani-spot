@@ -8,7 +8,7 @@
 	import { Menu, MenuButton, MenuItems, MenuItem } from '@rgossiaux/svelte-headlessui';
 
 	$: session = $page.data.session;
-	let loading = false
+	let loading = false;
 	let username;
 	let avatarUrl;
 
@@ -16,7 +16,7 @@
 		getProfile();
 	});
 
-	$:getProfile(session)
+	$: getProfile(session);
 
 	const getProfile = async () => {
 		try {
@@ -51,7 +51,7 @@
 			if (error) throw error;
 		} catch (error) {
 			if (error instanceof Error) {
-				alert(error.message);
+				console.error(error.message);
 			}
 		} finally {
 			loading = false;
@@ -70,7 +70,9 @@
 						<div class="image aspect-square h-full rounded-full truncate ">
 							<img src={avatarUrl} alt="" class="w-full h-full object-cover" />
 						</div>
-						<h1 class=" text-zinc-100 text-sm  overflow-hidden grow-0 text-start font-medium">{username}</h1>
+						<h1 class=" text-zinc-100 text-sm  overflow-hidden grow-0 text-start font-medium">
+							{username}
+						</h1>
 					</div>
 					<div class="arrow rotate-180 cursor-pointer"><Triangle fill="white" size="8" /></div>
 				</MenuButton>
