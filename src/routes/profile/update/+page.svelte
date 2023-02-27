@@ -62,7 +62,7 @@
 			if (error) throw error;
 		} catch (error) {
 			if (error instanceof Error) {
-				alert(error.message);
+				console.error(error.message);
 			}
 		} finally {
 			loading = false;
