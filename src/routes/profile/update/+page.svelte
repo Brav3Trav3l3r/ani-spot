@@ -54,7 +54,6 @@
 				username,
 				cover_url: coverUrl,
 				avatar_url: avatarUrl,
-				// updated_at: new Date()
 			};
 
 			let { error } = await supabase.from('users').upsert(updates);
