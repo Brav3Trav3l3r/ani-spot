@@ -89,17 +89,15 @@
 					<MenuItem let:active href="/">
 						<div class="{active ? 'bg-zinc-600' : 'transparent'} rounded p-2">Setting</div>
 					</MenuItem>
-					<div class="logout" on:keydown on:click={signOut}>
-						<MenuItem let:active>
-							<div
-								class="{active
-									? 'bg-red-400 rounded p-2'
-									: 'transparent border-t  border-zinc-600/50'} rounded p-2"
-							>
-								Log Out
-							</div>
-						</MenuItem>
-					</div>
+					<MenuItem let:active on:click={signOut} >
+						<div 
+							class="{active
+								? 'bg-red-400 rounded p-2'
+								: 'transparent border-t  border-zinc-600/50'} rounded p-2"
+						>
+							Log Out
+						</div>
+					</MenuItem>
 				</MenuItems>
 			</Menu>
 		{:else}

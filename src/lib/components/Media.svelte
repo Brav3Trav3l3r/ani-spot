@@ -13,7 +13,7 @@
 	import { fly, scale } from 'svelte/transition';
 
 	let max = 24;
-	let value = 10;
+	let value = 0;
 	import { isOpen, showList, storeAnime, epId } from '../store/store';
 
 	let animeTitle;

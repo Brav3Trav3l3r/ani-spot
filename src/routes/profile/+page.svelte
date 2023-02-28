@@ -27,7 +27,6 @@
 				.single();
 
 			if (data) {
-				console.log(data);
 				username = data.username;
 				coverUrl = data.cover_url;
 				avatarUrl = data.avatar_url;
@@ -44,33 +43,34 @@
 	};
 </script>
 
-<div class="cover h-[350px] w-full relative">
-	<div class="cover-image h-full w-full object-cover">
-		<img
-			src={coverUrl}
-			class="h-full w-full object-cover brightness-75"
-			alt=""
+<div class="cover h-[350px] w-full relative bg-zinc-800 outline-none">
+	{#await getProfile()}
+		<div
+			class="skeleton w-56 aspect-square absolute bottom-8 left-10 rounded-full bg-zinc-900 animate-pulse"
 		/>
-	</div>
-	<div class="absolute flex items-end top-20 left-10 bottom-8 space-x-8 right-10">
-		<div class="avatar-image w-56 aspect-square rounded-full bg-zinc-900 truncate drop-shadow-2xl">
-			<img
-				src={avatarUrl}
-				class="w-full h-full object-cover"
-				alt=""
-			/>
+	{:then}
+		<div class="cover-image h-full w-full object-cover outline-none">
+			<img src={coverUrl} class="h-full w-full object-cover brightness-75" alt="" />
 		</div>
+		<div class="absolute flex items-end top-20 left-10 bottom-8  right-10 space-x-8">
+			<div class="avatar-image w-56 aspect-square relative rounded-full bg-zinc-900">
+				<img src={avatarUrl} class="w-full h-full z-10 relative object-cover rounded-full" alt="" />
+				<div
+					class="absolute w-60 inset-0 aspect-square z-0 bg-zinc-900/70 rounded-full -translate-y-2 -translate-x-2 blur-md"
+				/>
+			</div>
 
-		<div class="info ">
-			<h1 class="text-sm font-semibold px-2">PROFILE</h1>
-			<h1
-				class="text-8xl text-start font-bold line-clamp-3 overflow-hidden tracking-tight pt-1 pb-4"
-			>
-				{username}
-			</h1>
-			<h1 class="text-sm font-semibold px-2">0 Likes . 0 Following</h1>
+			<div class="info ">
+				<h1 class="text-sm font-medium px-2">PROFILE</h1>
+				<h1
+					class="text-8xl text-start font-bold line-clamp-3 overflow-hidden tracking-tight pt-1 pb-4"
+				>
+					{username}
+				</h1>
+				<h1 class="text-sm font-medium px-2">0 Likes . 0 Following</h1>
+			</div>
 		</div>
-	</div>
+	{/await}
 </div>
 
 <div class="main px-8 pt-8 space-y-10">

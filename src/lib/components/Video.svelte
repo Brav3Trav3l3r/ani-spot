@@ -30,7 +30,7 @@
 			`https://api-consumet-rust.vercel.app/meta/anilist/watch/${id}`
 		);
 		const data = await res.json();
-		const sources = data.sources;
+		const sources = await data.sources;
 		const promise = await search('default', sources);
 		return promise;
 	}

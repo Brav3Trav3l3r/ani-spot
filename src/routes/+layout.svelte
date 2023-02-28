@@ -10,7 +10,6 @@
 	import { invalidate } from '$app/navigation';
 	import { onMount } from 'svelte';
 
-
 	onMount(() => {
 		const {
 			data: { subscription }
@@ -60,15 +59,8 @@
 	<div
 		bind:this={box}
 		on:scroll={getScroll}
-		class="slot main fixed left-80 bottom-0 pb-[90px] top-0 right-0 overflow-y-auto text-white "
+		class="slot main fixed left-80 bottom-0  top-0 right-0 overflow-y-auto text-white "
 	>
-		{#if $page.route.id === '/'}
-			<div
-				style:background-image="linear-gradient(0deg, transparent, purple )"
-				class="gradient absolute top-0 h-80 inset-x-0 z-0 opacity-30"
-			/>
-		{/if}
-
 		<div class="slot relative z-10">
 			<slot />
 		</div>
