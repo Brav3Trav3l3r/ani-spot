@@ -76,6 +76,7 @@
 <div class="main px-8 pt-8 space-y-10">
 	<div class="icon">
 		<MoreHorizontal size="32" color="#A5A5A5" />
+		<a href="/profile/update" class="text-sm text-zinc-400">Update Profile</a>
 	</div>
 
 	<div class="Profile  space-y-4">
