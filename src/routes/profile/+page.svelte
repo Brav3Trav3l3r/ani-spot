@@ -53,7 +53,7 @@
 		/>
 	</div>
 	<div class="absolute flex items-end top-20 left-10 bottom-8 space-x-8 right-10">
-		<div class="avatar-image w-56 aspect-square rounded-full bg-zinc-900 truncate">
+		<div class="avatar-image w-56 aspect-square rounded-full bg-zinc-900 truncate drop-shadow-2xl">
 			<img
 				src={avatarUrl}
 				class="w-full h-full object-cover"
