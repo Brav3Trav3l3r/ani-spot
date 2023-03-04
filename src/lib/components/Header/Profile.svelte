@@ -7,16 +7,27 @@
 	import { page } from '$app/stores';
 	import { Menu, MenuButton, MenuItems, MenuItem } from '@rgossiaux/svelte-headlessui';
 
-	$: session = $page.data.session;
+	$:console.log($page)
+
+	let session;
+
 	let loading = false;
 	let username;
 	let avatarUrl;
 
 	onMount(() => {
-		getProfile();
+		if ($page.data.session) {
+			session = $page.data.session;
+			getProfile();
+		}
 	});
 
-	$: getProfile(session);
+	$: () => {
+		if ($page.data.session) {
+			session = $page.data.session;
+			getProfile();
+		}
+	};
 
 	const getProfile = async () => {
 		try {
@@ -89,8 +100,8 @@
 					<MenuItem let:active href="/">
 						<div class="{active ? 'bg-zinc-600' : 'transparent'} rounded p-2">Setting</div>
 					</MenuItem>
-					<MenuItem let:active on:click={signOut} >
-						<div 
+					<MenuItem let:active on:click={signOut}>
+						<div
 							class="{active
 								? 'bg-red-400 rounded p-2'
 								: 'transparent border-t  border-zinc-600/50'} rounded p-2"

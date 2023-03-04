@@ -56,7 +56,7 @@
 			<div class="avatar-image w-56 aspect-square relative rounded-full bg-zinc-900">
 				<img src={avatarUrl} class="w-full h-full z-10 relative object-cover rounded-full" alt="" />
 				<div
-					class="absolute w-60 inset-0 aspect-square z-0 bg-zinc-900/70 rounded-full -translate-y-2 -translate-x-2 blur-md"
+					class="absolute w-60 inset-0 aspect-square z-0 bg-zinc-900/30 rounded-full -translate-y-2 -translate-x-2 blur-md"
 				/>
 			</div>
 
