@@ -1,13 +1,13 @@
 <script>
 	import { supabase } from '$lib/supabaseClient';
-	import { onMount } from 'svelte';
+	import { onDestroy, onMount } from 'svelte';
 	import { logOut } from '../../actions/logout';
 	import { Triangle } from 'lucide-svelte';
 	import { browser } from '$app/environment';
 	import { page } from '$app/stores';
 	import { Menu, MenuButton, MenuItems, MenuItem } from '@rgossiaux/svelte-headlessui';
 
-	$:console.log($page)
+	// $:console.log($page)
 
 	let session;
 
@@ -21,6 +21,10 @@
 			getProfile();
 		}
 	});
+
+	onDestroy(()=>{
+		console.log('destroyed')
+	})
 
 	$: () => {
 		if ($page.data.session) {
@@ -114,9 +118,9 @@
 		{:else}
 			<a href="/login"
 				><div
-					class="login bg-purple-500 py-2 px-6 rounded-md outline outline-offset-2 outline-purple-400"
+					class="login bg-zinc-100 group hover:bg-white py-2 px-6 rounded drop-shadow-xl transiton-all duration-100"
 				>
-					<h1 class="text-xs">LOGIN</h1>
+					<h1 class="text-sm font-semibold group-hover:text-black text-zinc-900">Sign in</h1>
 				</div></a
 			>
 		{/if}

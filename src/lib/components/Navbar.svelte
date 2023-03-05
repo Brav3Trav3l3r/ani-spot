@@ -1,10 +1,8 @@
 <script>
 	import { Twitch, Home, Search, Library } from 'lucide-svelte';
 	import { Video } from '$lib/components';
-	import {storeAnime} from '$lib/store/store.js'
+	import { storeAnime, epId } from '$lib/store/store.js';
 	import { fly, scale } from 'svelte/transition';
-
-
 </script>
 
 <nav
@@ -16,7 +14,9 @@
 			<h1 class="text-3xl font-semibold">Twitch</h1>
 		</div> -->
 
-		<div class="mainlinks mt-8 space-y-3 text-sm font-medium text-zinc-300 border-b-2 pb-4 border-zinc-800">
+		<div
+			class="mainlinks mt-8 space-y-3 text-sm font-medium text-zinc-300 border-b-2 pb-4 border-zinc-800"
+		>
 			<div class="home flex items-center space-x-4 w-fit cursor-pointer hover:text-white">
 				<div class="icon">
 					<Home />
@@ -43,10 +43,11 @@
 		</div>
 	</div>
 
-{#if $storeAnime != null}
-		<div 
-		in:fly={{ y: 60, delay:200, duration: 400 }} class="video">
-			<Video />
-		</div>
-{/if}
+	{#key $epId}
+		{#if $epId != null}
+			<div in:fly={{ y: 60, delay: 200, duration: 400 }} class="video">
+				<Video epId={$epId} />
+			</div>
+		{/if}
+	{/key}
 </nav>

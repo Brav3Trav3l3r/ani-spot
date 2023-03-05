@@ -38,7 +38,7 @@
 	in:fly={{ y: 40, duration: 300 }}
 	class="media fixed text-white inset-x-0 bottom-0 h-[90px] space-x-8 bg-neutral-900 flex items-center justify-center px-6 border-t-2 z-50 border-zinc-800"
 >
-	<div class="playing flex flex-col w-1/4 ">
+	<div class="playing flex flex-col w-1/4 space-y-1">
 		<h1 class="line-clamp-1 text-sm">{$epId ? $epId.number + '.' + ' ' + $epId.title : ''}</h1>
 		<a href="/{$storeAnime.id}"><h1 class="text-xs text-zinc-400 line-clamp-1 hover:underline underline-offset-2">{animeTitle ? animeTitle : ''}</h1></a>
 	</div>

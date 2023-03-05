@@ -3,7 +3,7 @@
 	export let recentEpisode = false
 	import Carousel from 'svelte-carousel';
 	import { browser } from '$app/environment';
-	import { ArrowLeftRight, Heart, ChevronRight, ChevronLeft } from 'lucide-svelte';
+	import {ChevronRight, ChevronLeft } from 'lucide-svelte';
 	export let data;
 	export let title;
 
