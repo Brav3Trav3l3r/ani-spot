@@ -8,7 +8,6 @@
 	defineCustomElements();
 
 	export let epId;
-	$: console.log(epId);
 	let url;
 
 	$: if (epId !== null) {
@@ -39,7 +38,7 @@
 </script>
 
 <div class="video aspect-video w-full bg-zinc-800 relative group focus:outline-none ">
-	{#await getUrl()}
+	<!-- {#await getUrl()}
 		<div class="skeleton h-full w-full object-cover aspect-video focus:outline-none ">
 			<img
 				src="https://cdn.dribbble.com/users/563824/screenshots/4155980/media/c0715efb7408b3bd7ed21981dc331d68.gif"
@@ -47,17 +46,17 @@
 				class="w-full h-full object-cover"
 			/>
 		</div>
-	{:then}
-		<div class="player h-full w-full object-cover aspect-video focus:outline-none ">
-			<media-player src={url} controls autoplay>
-				<media-outlet />
-			</media-player>
-		</div>
+	{:then} -->
+	<div class="player h-full w-full object-cover aspect-video focus:outline-none ">
+		<media-player src={url} controls autoplay>
+			<media-outlet />
+		</media-player>
+	</div>
 
-		<div
-			class="icon absolute top-2 right-2 hidden group-hover:block cursor-pointer p-3 rounded-full aspect-square bg-black/50"
-		>
-			<Maximize2 size="20" />
-		</div>
-	{/await}
+	<div
+		class="icon absolute top-2 right-2 hidden group-hover:block cursor-pointer p-3 rounded-full aspect-square bg-black/50"
+	>
+		<Maximize2 size="20" />
+	</div>
+	<!-- {/await} -->
 </div>

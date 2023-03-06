@@ -45,7 +45,7 @@
 
 	{#key $epId}
 		{#if $epId != null}
-			<div in:fly={{ y: 60, delay: 200, duration: 400 }} class="video">
+			<div in:fly={{ y: 60, delay: 200, duration: 400, delay:300 }} class="video">
 				<Video epId={$epId} />
 			</div>
 		{/if}
