@@ -4,4 +4,5 @@ export const isOpen = writable(false)
 export const epId = writable(null)
 export const storeAnime = writable(null)
 export const showList = writable(false)
+export const savedVolume = writable(80)
  

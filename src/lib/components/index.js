@@ -1,6 +1,5 @@
 export {default as Navbar } from './Navbar.svelte'
 export {default as Carousel } from './Carousel.svelte'
-export {default as Video } from './Video.svelte'
 export {default as Media } from './Media.svelte'
 export {default as AnimeGroup } from './AnimeGroup.svelte'
 export {default as Featured } from './Featured.svelte'

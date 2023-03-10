@@ -7,8 +7,6 @@
 	import { page } from '$app/stores';
 	import { Menu, MenuButton, MenuItems, MenuItem } from '@rgossiaux/svelte-headlessui';
 
-	// $:console.log($page)
-
 	let session;
 
 	let loading = false;

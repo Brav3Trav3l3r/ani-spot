@@ -1,6 +1,5 @@
 <script>
 	import { Twitch, Home, Search, Library } from 'lucide-svelte';
-	import { Video } from '$lib/components';
 	import { storeAnime, epId } from '$lib/store/store.js';
 	import { fly, scale } from 'svelte/transition';
 </script>
@@ -43,11 +42,4 @@
 		</div>
 	</div>
 
-	{#key $epId}
-		{#if $epId != null}
-			<div in:fly={{ y: 60, delay: 200, duration: 400, delay:300 }} class="video">
-				<Video epId={$epId} />
-			</div>
-		{/if}
-	{/key}
 </nav>

@@ -16,7 +16,6 @@
 
 	afterNavigate(() => {
 		maxLength = 350;
-		carousel.goTo(0, { animated: false });
 	});
 </script>
 
