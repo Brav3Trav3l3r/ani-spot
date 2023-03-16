@@ -1,5 +1,5 @@
 export const load= async({fetch, params})=>{
-    const infoRes = await fetch(`http://localhost:8080/api-consumet-rust.vercel.app/meta/anilist/info/${params.id}`)
+    const infoRes = await fetch(`https://api-consumet-rust.vercel.app/meta/anilist/info/${params.id}`)
     const infoJson = await infoRes.json()
 
     let color = null
