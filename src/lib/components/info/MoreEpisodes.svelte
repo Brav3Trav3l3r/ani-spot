@@ -5,6 +5,7 @@
 	import { quintOut } from 'svelte/easing';
 	import { X } from 'lucide-svelte';
 	import { page } from '$app/stores';
+	$:console.log($storeAnime)
 
 	let info;
 
@@ -70,7 +71,7 @@
 	on:keydown
 	on:click={handleCross}
 	in:scale={{ duration: 300 }}
-	class="button fixed bottom-28 h-fit right-14 cursor-pointer z-50 rounded-full bg-purple-400 p-2"
+	class="button fixed bottom-10 h-fit right-14 cursor-pointer z-50 rounded-full bg-purple-400 p-2"
 >
 	<div><X fill="purple" size="24" /></div>
 </div>

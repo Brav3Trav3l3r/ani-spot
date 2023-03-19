@@ -1,21 +1,20 @@
 <script>
-	import { Play, Search } from 'lucide-svelte';
-	import { Profile } from '$lib/components';
-	import SearchForm from './SearchForm.svelte';
+	import { Play, Search, ChevronLeft, ChevronRight, Triangle } from 'lucide-svelte';
+	import { Profile, SearchForm } from '$lib/components';
 	import { fly, scale } from 'svelte/transition';
-	import { ChevronLeft, ChevronRight, Triangle } from 'lucide-svelte';
 	import { page } from '$app/stores';
 	import { isOpen, storeAnime, showList } from '../store/store.js';
 	import { afterNavigate } from '$app/navigation';
+
 	export let yScroll;
+
 	let color;
+	let title;
 
 	$: changeTitle($showList);
 
-	let title;
-
 	function changeTitle(n) {
-		if (n && ($storeAnime != null)) {
+		if (n && $storeAnime != null) {
 			title = $storeAnime.title.english ? $storeAnime.title.english : $storeAnime.title.romaji;
 		} else if ($page.data.info) {
 			title = $page.data.info.title.english

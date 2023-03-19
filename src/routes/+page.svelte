@@ -44,6 +44,7 @@
 		</div>
 	{/if}
 	<AnimeGroup data={trend} title="Trending" />
+	
 	<AnimeGroup data={recent} recentEpisode = {true} title="Recent Releases" />
 	<AnimeGroup data={popular} title="Popular" />
 

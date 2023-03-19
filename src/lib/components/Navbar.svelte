@@ -4,15 +4,8 @@
 	import { fly, scale } from 'svelte/transition';
 </script>
 
-<nav
-	class="w-80 fixed left-0 top-0 pb-[90px] bottom-0 text-white bg-black flex flex-col justify-between "
->
-	<div class="main px-8">
-		<!-- <div class="icon flex items-center space-x-2">
-			<div class="icon"><Twitch size="48" /></div>
-			<h1 class="text-3xl font-semibold">Twitch</h1>
-		</div> -->
-
+<nav class="w-80 fixed left-0 top-0 bottom-0 text-white bg-black flex flex-col justify-between ">
+	<div class="main px-4">
 		<div
 			class="mainlinks mt-8 space-y-3 text-sm font-medium text-zinc-300 border-b-2 pb-4 border-zinc-800"
 		>
@@ -41,5 +34,5 @@
 			<a href="/" class="hover:text-white">Most Watched</a>
 		</div>
 	</div>
-
+	
 </nav>

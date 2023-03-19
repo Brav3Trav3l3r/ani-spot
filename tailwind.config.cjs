@@ -4,7 +4,9 @@ module.exports = {
   theme: {
     extend: {
       fontFamily:{
-        sans:['Lexend', 'sans-serif']
+        lato:['Lato', 'sans-serif'],
+        roboto:['Roboto', 'sans-serif'],
+        lexend:['Lexend', 'sans-serif']
       },
     }
   },

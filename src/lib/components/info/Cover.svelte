@@ -35,7 +35,7 @@
 		<h1
 			class="{animeTitle.length > 30
 				? 'text-6xl'
-				: 'text-7xl'} title-text font-bold line-clamp-3 overflow-hidden tracking-tight pt-1 pb-4"
+				: 'text-8xl'} title-text font-bold font-lexend line-clamp-3 overflow-hidden tracking-tight pt-1 pb-4"
 		>
 			{animeTitle}
 		</h1>

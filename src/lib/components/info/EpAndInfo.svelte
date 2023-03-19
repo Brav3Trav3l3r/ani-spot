@@ -9,7 +9,8 @@
 	import { isOpen } from '$lib/store/store';
 	import { Card } from '$lib/components';
 	let maxLength = 350;
-
+	$: console.log($isOpen);
+	$: console.log($storeAnime);
 	let carousel;
 
 	import { afterNavigate, beforeNavigate } from '$app/navigation';
@@ -28,6 +29,7 @@
 					<div
 						on:keydown
 						on:click={() => {
+							console.log('click');
 							storeAnime.set(info);
 							epId.set(episode);
 						}}
@@ -45,14 +47,17 @@
 			</div>
 
 			<button
-				on:click={() => isOpen.set(true)}
+				on:click={() => {
+					console.log('click');
+					isOpen.set(true);
+				}}
 				class="text-sm font-semibold text-[#B2B2B2] hover:underline underline-offset-2 cursor-pointer mt-4 w-fit "
 				>{#if info.episodes.length > 0 && info.nextAiringEpisode && info.nextAiringEpisode.episode <= info.episodes.length}
 					{info.nextAiringEpisode.episode - 1}/{info.episodes.lenght}
 				{:else if info.episodes.length}
 					{info.episodes.length}
 				{/if}
-				<span>EPISODES</span></button
+				<span>episodes</span></button
 			>
 		{:else}
 			<div class="no-eps py-4">
@@ -129,42 +134,10 @@
 		<div class="heading flex justify-between items-center">
 			<h1 class="text-2xl font-medium tracking-tight py-4 ">Relations</h1>
 		</div>
-		<div class="card-group flex gap-2 scrollbar-hide">
-			{#if browser && info.relations.length > 5}
-				<Carousel
-					bind:this={carousel}
-					let:showPrevPage
-					let:showNextPage
-					dots={false}
-					infinite={false}
-					particlesToShow={5}
-					particlesToScroll={4}
-				>
-					<div
-						slot="prev"
-						on:keydown
-						on:click={showPrevPage}
-						class="custom-arrow custom-arrow-prev rounded-full p-2 absolute right-12 cursor-pointer z-50 -translate-y-12"
-					>
-						<ChevronLeft />
-					</div>
-					{#each info.relations as anime}
-						<Card {anime} />
-					{/each}
-					<div
-						slot="next"
-						on:keydown
-						on:click={showNextPage}
-						class="custom-arrow custom-arrow-next rounded-full p-2 absolute right-2 cursor-pointer z-50 -translate-y-12"
-					>
-						<ChevronRight />
-					</div>
-				</Carousel>
-			{:else}
-				{#each info.relations as anime}
-					<Card {anime} />
-				{/each}
-			{/if}
+		<div class="card-group grid xl:grid-cols-5 md:grid-cols-3 sm:grid-cols-2 gap-6 gap-y-10 ">
+			{#each info.relations as anime}
+				<Card {anime} />
+			{/each}
 		</div>
 	</div>
 {/if}
@@ -195,7 +168,7 @@
 					</div>
 					{#each info.characters as ch}
 						<div
-							class="anime flex flex-col space-y-4 hover:bg-zinc-800/70 bg-[#181818] rounded-2xl p-6 w-56 h-90 shrink-0 text-center border-4 border-[#121212]"
+							class="anime flex flex-col space-y-4 hover:bg-zinc-800/70 bg-[#181818] rounded-2xl p-8 w-52 h-90 shrink-0 text-center border-4 border-[#121212]"
 						>
 							<div class="image aspect-square w-full rounded-full truncate">
 								<img src={ch.image} alt="" class="h-full w-full object-cover" />
@@ -241,44 +214,10 @@
 		<div class="heading flex justify-between items-center">
 			<h1 class="text-2xl font-semibold tracking-tight py-4 ">Recomendations</h1>
 		</div>
-		<div class="card-group flex gap-6 scrollbar-hide">
-			{#if browser && info.recommendations.length > 5}
-				<Carousel
-					bind:this={carousel}
-					let:showPrevPage
-					let:showNextPage
-					dots={false}
-					infinite={false}
-					particlesToShow={5}
-					particlesToScroll={4}
-				>
-					<div
-						slot="prev"
-						on:keydown
-						on:click={showPrevPage}
-						class="custom-arrow custom-arrow-prev rounded-full p-2 absolute right-12 cursor-pointer z-50 -translate-y-12"
-					>
-						<ChevronLeft />
-					</div>
-					{#each info.recommendations as anime}
-						<Card {anime} />
-					{/each}
-					<div
-						slot="next"
-						on:keydown
-						on:click={showNextPage}
-						class="custom-arrow custom-arrow-next rounded-full p-2 absolute right-2 cursor-pointer z-50 -translate-y-12"
-					>
-						<ChevronRight />
-					</div>
-				</Carousel>
-			{:else}
-				<div class="group grid grid-cols-5">
-					{#each info.recommendations as anime}
-						<Card {anime} />
-					{/each}
-				</div>
-			{/if}
+		<div class="card-group grid xl:grid-cols-5 md:grid-cols-3 sm:grid-cols-2 gap-6 gap-y-10 ">
+			{#each info.recommendations as anime}
+				<Card {anime} />
+			{/each}
 		</div>
 	</div>
 {/if}

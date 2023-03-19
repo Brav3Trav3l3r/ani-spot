@@ -1,7 +1,11 @@
 <script>
 	import { Play, Heart, MoreHorizontal } from 'lucide-svelte';
-	import IoIosPlay from 'svelte-icons/io/IoIosPlay.svelte';
+	import { enhance } from '$app/forms';
 	import { page } from '$app/stores';
+	import { browser } from '$app/environment';
+	let pageForm;
+	import { provider, isDubbed } from '$lib/store/media';
+	import { Menu, MenuButton, MenuItems, MenuItem } from '@rgossiaux/svelte-headlessui';
 </script>
 
 <div class="controls py-6 px-8 flex items-center space-x-6">
@@ -17,9 +21,7 @@
 		<MoreHorizontal size="32" />
 	</div>
 	{#if $page.data.info && $page.data.info.trailer}
-		<div
-			class="trailer px-6 py-2 border-2 border-zinc-400/60 rounded-md hover:cursor-pointer"
-		>
+		<div class="trailer px-6 py-2 border-2 border-zinc-400/60 rounded-md hover:cursor-pointer">
 			{#if $page.data.info.type === 'MUSIC'}
 				<h1 class=" text-sm font-medium">PLAY</h1>
 			{:else}
@@ -27,4 +29,32 @@
 			{/if}
 		</div>
 	{/if}
+
+	<div class="form">
+		<form bind:this={pageForm} action="?/changeSrc" method="POST" class="text-black" use:enhance>
+			<select
+				name="dub"
+				bind:value={$isDubbed}
+				on:change={(event) => {
+					pageForm.requestSubmit();
+					isDubbed.set(event.target.value);
+				}}
+			>
+				<option value="false">Sub</option>
+				<option value="true">Dub</option>
+			</select>
+			<select
+				name="provider"
+				bind:value={$provider}
+				on:change={(event) => {
+					pageForm.requestSubmit();
+					provider.set(event.target.value);
+				}}
+			>
+				<option value="gogo">Gogo</option>
+				<option value="zoro">Zoro</option>
+			</select>
+		</form>
+	</div>
+
 </div>

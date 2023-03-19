@@ -1,7 +1,7 @@
 <script>
 	import '../app.css';
 	import { isOpen, storeAnime, showList } from '../lib/store/store';
-	import { Navbar, Media, Header, MoreEpisodes, Auth } from '$lib/components';
+	import { Navbar, Media, Header, MoreEpisodes, Footer } from '$lib/components';
 	import NProgress from 'nprogress';
 	import 'nprogress/nprogress.css';
 	import { beforeNavigate, afterNavigate } from '$app/navigation';
@@ -51,7 +51,7 @@
 	<title>{$page.data.title ? $page.data.title : 'Spotani'}</title>
 </svelte:head>
 
-<div class="root-layout relative">
+<div class="root-layout relative font-lato">
 	{#if $page.route.id != '/login'}
 		<Header {yScroll} />
 	{/if}
@@ -59,11 +59,12 @@
 	<div
 		bind:this={box}
 		on:scroll={getScroll}
-		class="slot main fixed left-80 bottom-0 pb-[96px] top-0 right-0 overflow-y-auto text-white "
+		class="slot main  fixed left-80 bottom-0 top-0 right-0 overflow-y-auto text-white "
 	>
-		<div class="slot relative z-10">
+		<div class="slot relative z-10 mb-10">
 			<slot />
 		</div>
+		<Footer/>
 	</div>
 
 	{#if $storeAnime != null}

@@ -1,7 +1,6 @@
 <script>
 	import { supabase } from '$lib/supabaseClient';
 	import { onDestroy, onMount } from 'svelte';
-	import { logOut } from '../../actions/logout';
 	import { Triangle } from 'lucide-svelte';
 	import { browser } from '$app/environment';
 	import { page } from '$app/stores';
