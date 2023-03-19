@@ -8,6 +8,7 @@
 	import { storeVolume, provider, isDubbed } from '$lib/store/media';
 
 	$:console.log(subSrc)
+	$:console.log($provider)
 	let animeTitle;
 	let url;
 	let subSrc;
@@ -68,9 +69,7 @@
 
 	const getUrl = async (id) => {
 		if (id != null) {
-			const res = await fetch(
-				`https://cors.dekianime.site/https://api-consumet-rust.vercel.app/meta/anilist/watch/${id}?provider=${$provider}`
-			);
+			const res = await fetch(`https://cors.dekianime.site/https://api-consumet-rust.vercel.app/meta/anilist/watch/${id}?provider=${$provider}`);
 			const data = await res.json();
 			const sources = data.sources;
 			const promise = await search(sources);

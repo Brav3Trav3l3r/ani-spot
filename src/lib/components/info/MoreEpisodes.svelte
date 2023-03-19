@@ -5,7 +5,6 @@
 	import { quintOut } from 'svelte/easing';
 	import { X } from 'lucide-svelte';
 	import { page } from '$app/stores';
-	$:console.log($storeAnime)
 
 	let info;
 

@@ -29,7 +29,6 @@ export const load= async({fetch, params,url})=>{
 
 export const actions = {
     changeSrc : async({request,params})=>{
-        // console.log('params:', params)
         const formData = await request.formData()
         const dub = formData.get('dub')
         const provider = formData.get('provider')
