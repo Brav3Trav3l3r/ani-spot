@@ -69,7 +69,7 @@
 	const getUrl = async (id) => {
 		if (id != null) {
 			const res = await fetch(
-				`https://api-consumet-rust.vercel.app/meta/anilist/watch/${id}?provider=${$provider}`
+				`https://cors.dekianime.site/https://api-consumet-rust.vercel.app/meta/anilist/watch/${id}?provider=${$provider}`
 			);
 			const data = await res.json();
 			const sources = data.sources;
