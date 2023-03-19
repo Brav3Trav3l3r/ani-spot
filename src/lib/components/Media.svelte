@@ -184,7 +184,7 @@
 									<track
 										default
 										kind="subtitles"
-										src="https://cors.dekianime.site/{subSrc}"
+										src={subSrc}
 										srclang="en"
 										label="English"
 									/>
