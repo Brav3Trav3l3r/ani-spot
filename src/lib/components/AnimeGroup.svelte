@@ -11,7 +11,7 @@
 		<h1 class="text-2xl font-semibold tracking-tight py-4 ">{title}</h1>
 	</div>
 
-	<div class="card-group grid xl:grid-cols-5 md:grid-cols-3 sm:grid-cols-2 gap-6 gap-y-10 ">
+	<div class="card-group grid xl:grid-cols-6 md:grid-cols-4 sm:grid-cols-3 gap-3 gap-y-6 ">
 		{#each data as anime}
 			<Card {anime} {recentEpisode} />
 		{/each}

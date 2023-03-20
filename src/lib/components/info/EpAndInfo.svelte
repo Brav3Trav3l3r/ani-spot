@@ -134,7 +134,7 @@
 		<div class="heading flex justify-between items-center">
 			<h1 class="text-2xl font-medium tracking-tight py-4 ">Relations</h1>
 		</div>
-		<div class="card-group grid xl:grid-cols-5 md:grid-cols-3 sm:grid-cols-2 gap-6 gap-y-10 ">
+		<div class="card-group grid xl:grid-cols-6 md:grid-cols-4 sm:grid-cols-3 gap-4 gap-y-8 ">
 			{#each info.relations as anime}
 				<Card {anime} />
 			{/each}
@@ -155,8 +155,8 @@
 					let:showNextPage
 					dots={false}
 					infinite={false}
-					particlesToShow={5}
-					particlesToScroll={4}
+					particlesToShow={6}
+					particlesToScroll={2}
 				>
 					<div
 						slot="prev"
@@ -214,7 +214,7 @@
 		<div class="heading flex justify-between items-center">
 			<h1 class="text-2xl font-semibold tracking-tight py-4 ">Recomendations</h1>
 		</div>
-		<div class="card-group grid xl:grid-cols-5 md:grid-cols-3 sm:grid-cols-2 gap-6 gap-y-10 ">
+		<div class="card-group grid xl:grid-cols-6 md:grid-cols-4 sm:grid-cols-3 gap-4 gap-y-8 ">
 			{#each info.recommendations as anime}
 				<Card {anime} />
 			{/each}

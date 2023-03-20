@@ -55,16 +55,18 @@
 	{#if $page.route.id != '/login'}
 		<Header {yScroll} />
 	{/if}
-	<Navbar />
+	<nav class="w-80 fixed left-0 top-0 bottom-0 text-white bg-black flex flex-col justify-between ">
+		<Navbar />
+	</nav>
 	<div
 		bind:this={box}
 		on:scroll={getScroll}
-		class="slot main  fixed left-80 bottom-0 top-0 right-0 overflow-y-auto text-white "
+		class="slot main fixed left-80 bottom-0 top-0 right-0 overflow-y-auto text-white "
 	>
 		<div class="slot relative z-10 mb-10">
 			<slot />
 		</div>
-		<Footer/>
+		<Footer />
 	</div>
 
 	{#if $storeAnime != null}

@@ -4,7 +4,6 @@
 	import { fly, scale } from 'svelte/transition';
 </script>
 
-<nav class="w-80 fixed left-0 top-0 bottom-0 text-white bg-black flex flex-col justify-between ">
 	<div class="main px-4">
 		<div
 			class="mainlinks mt-8 space-y-3 text-sm font-medium text-zinc-300 border-b-2 pb-4 border-zinc-800"
@@ -35,4 +34,3 @@
 		</div>
 	</div>
 	
-</nav>
