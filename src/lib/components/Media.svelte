@@ -69,7 +69,7 @@
 
 	const getUrl = async (id) => {
 		if (id != null) {
-			const res = await fetch(`https://cors.dekianime.site/https://api-consumet-rust.vercel.app/meta/anilist/watch/${id}?provider=${$provider}`);
+			const res = await fetch(`https://api-consumet-rust.vercel.app/meta/anilist/watch/${id}?provider=${$provider}`);
 			const data = await res.json();
 			const sources = data.sources;
 			const promise = await search(sources);
@@ -179,12 +179,12 @@
 							on:vmCurrentTimeChange={(event) => (currentTime = Math.trunc(event.detail))}
 						>
 							<vm-hls version="latest" poster={$epId.image}>
-								<source data-src="https://cors.dekianime.site/{url}" type="application/x-mpegURL" />
+								<source data-src="https://proxy.vnxservers.com//{url}" type="application/x-mpegURL" />
 								{#if subSrc}
 									<track
 										default
 										kind="subtitles"
-										src="https://cors.dekianime.site/{subSrc}"
+										src="https://proxy.vnxservers.com//{subSrc}"
 										srclang="en"
 										label="English"
 									/>

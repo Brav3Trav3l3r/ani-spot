@@ -1,5 +1,5 @@
 <script>
-	import { onMount } from 'svelte';
+	import { onMount, getContext } from 'svelte';
 	import { supabase } from '$lib/supabaseClient';
 	import { page } from '$app/stores';
 	import { goto } from '$app/navigation';
@@ -14,6 +14,8 @@
 
 	onMount(() => {
 		getProfile();
+		const data = getContext('userData')
+		console.log('userData:', data)
 	});
 
 	const getProfile = async () => {
