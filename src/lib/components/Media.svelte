@@ -179,12 +179,12 @@
 							on:vmCurrentTimeChange={(event) => (currentTime = Math.trunc(event.detail))}
 						>
 							<vm-hls version="latest" poster={$epId.image}>
-								<source data-src="https://proxy.vnxservers.com//{url}" type="application/x-mpegURL" />
+								<source data-src="https://proxy.vnxservers.com/{url}" type="application/x-mpegURL" />
 								{#if subSrc}
 									<track
 										default
 										kind="subtitles"
-										src="https://proxy.vnxservers.com//{subSrc}"
+										src="https://proxy.vnxservers.com/{subSrc}"
 										srclang="en"
 										label="English"
 									/>
